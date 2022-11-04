@@ -1,20 +1,11 @@
 import * as React from "react"
 import type { HeadFC } from "gatsby"
-
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
+import '../styles/global.css';
 
 const IndexPage = () => {
   return (
-    <main style={pageStyles}>
-      Home Page
-    </main>
+    <h3 className="text-5xl font-bold underline">Hello world using Tailwind inline</h3>
   )
 }
 
 export default IndexPage
-
-// export const Head: HeadFC = () => <title>Home Page</title>

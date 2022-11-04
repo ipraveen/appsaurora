@@ -1,10 +1,9 @@
 import * as React from 'react';
-import Calender from '../apps/calender/Calender';
+import CalenderApp from 'apps/calender/Calender';
+//import Layout from '../components/layout';
 
-const AboutPage = () => {
-    return <Calender />;
+const Calender = () => {
+    return <CalenderApp />;
 };
 
-export default AboutPage;
-
-// export const Head: HeadFC = () => <title>Home Page</title>
+export default Calender;

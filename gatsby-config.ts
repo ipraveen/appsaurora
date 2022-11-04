@@ -1,6 +1,9 @@
-import type { GatsbyConfig } from 'gatsby';
+// import type { GatsbyConfig } from 'gatsby';
+import path from 'path';
 
-const config: GatsbyConfig = {
+// const path = require('path');
+
+const config = {
     siteMetadata: {
         title: `appsaurora`,
         siteUrl: `https://www.yourdomain.tld`,
@@ -24,6 +27,7 @@ const config: GatsbyConfig = {
                 icon: 'src/images/icon.png',
             },
         },
+        'gatsby-plugin-postcss',
         'gatsby-plugin-mdx',
         'gatsby-plugin-sharp',
         'gatsby-transformer-sharp',
@@ -43,7 +47,18 @@ const config: GatsbyConfig = {
             },
             __key: 'pages',
         },
+        {
+            resolve: 'gatsby-plugin-root-import',
+            options: {
+                components: path.join(__dirname, 'src/components'),
+                apps: path.join(__dirname, 'src/apps'),
+                assets: path.join(__dirname, 'src/assets'),
+                styles: path.join(__dirname, 'src/styles'),
+            },
+        },
     ],
 };
 
 export default config;
+
+// module.exports = config;

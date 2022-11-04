@@ -1,0 +1,9 @@
+@tailwind utilities;
+
+.navBar {
+    @apply container mx-auto p-6;
+}
+
+.navBar section {
+    @apply flex justify-between items-center;
+}
