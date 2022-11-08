@@ -10,7 +10,7 @@ export default function AppLayout({ children }: Props) {
     return (
         <div className={styles.app}>
             <Header />
-            <main className='border border-solid rounded-xl border-stone-300 container mx-auto p-6 my-6'>{children}</main>
+            <main className='border border-solid rounded-xl border-stone-300 container mx-auto my-6'>{children}</main>
             <Footer />
         </div>
     );

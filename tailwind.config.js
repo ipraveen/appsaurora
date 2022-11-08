@@ -3,7 +3,7 @@ module.exports = {
     content: [
         './gatsby-browser.jsx',
         './src/pages/*.{js,jsx,ts,tsx}',
-        './src/apps/*.{js,jsx,ts,tsx}',
+        './src/apps/**/*.{js,jsx,ts,tsx}',
         './src/components/**/*.{js,jsx,ts,tsx}',
     ],
     theme: {
@@ -11,7 +11,7 @@ module.exports = {
             sm: '480px',
             md: '768px',
             lg: '976px',
-            xl: '1440px',
+            xl: '976px', //'1440px',
         },
         fontFamily: {
             theme: ['"Baloo 2"', 'cursive', 'sans-serif'],
@@ -26,8 +26,8 @@ module.exports = {
                 '4xl': '2rem',
             },
             colors: {
-                theme: 'border-stone-300'
-            }
+                theme: 'border-stone-300',
+            },
         },
     },
     plugins: [],
