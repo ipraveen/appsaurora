@@ -3,9 +3,9 @@ import * as style from './container.module.css';
 
 const Calender = () => {
   return (
-    <main className={style.container}>
-      Calender
-    </main>
+    <div className={style.calender}>
+      Calender App
+    </div>
   )
 }
 

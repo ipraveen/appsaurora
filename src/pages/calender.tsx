@@ -1,13 +1,13 @@
 import * as React from 'react';
-import CalenderApp from 'apps/calender/Calender';
-import Layout from '../components/layout';
+import { Calender } from 'apps';
+import { AppLayout } from 'components/layout';
 
-const Calender = () => {
+const CalenderPage = () => {
     return (
-        <Layout>
-            <CalenderApp />
-        </Layout>
+        <AppLayout>
+            <Calender />
+        </AppLayout>
     );
 };
 
-export default Calender;
+export default CalenderPage;

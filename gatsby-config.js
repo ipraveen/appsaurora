@@ -17,6 +17,7 @@ const config = {
             },
         },
         'gatsby-plugin-image',
+        'gatsby-plugin-fontawesome-css',
         'gatsby-plugin-sitemap',
         {
             resolve: 'gatsby-plugin-manifest',

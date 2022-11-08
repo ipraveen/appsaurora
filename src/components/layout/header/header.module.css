@@ -1,0 +1,25 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+.navBar {
+    /* @apply p-6 ; */
+}
+
+.logo {
+    display: flex;
+    /* @apply justify-start items-center; */
+}
+
+.logo img {
+    width: 4rem;
+}
+
+.logo h1 {
+    font-size: 3rem;
+}
+
+.navBar section {
+    /* @apply flex justify-between items-center; */
+}
+
