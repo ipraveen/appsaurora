@@ -28,8 +28,8 @@ const Header: React.FC<Props> = ({ year, startDate, endDate }) => {
                         </span>
                     </div>
                     <div className="flex items-center justify-around p-4">
-                        <HeaderInfo value={days} label="Days: " />
-                        <HeaderInfo value={weekends} label="Weekends: " />
+                        <HeaderInfo value={days} label="Days" />
+                        <HeaderInfo value={weekends} label="Weekends" />
                         <HeaderInfo value={weekdays} label="Weekdays" />
                     </div>
                 </>

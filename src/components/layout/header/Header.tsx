@@ -11,7 +11,7 @@ interface Props {
 export default function Header({ icon, label }: Props) {
     return (
         <header className="border-b-2 colors-theme bg-white shadow">
-            <Container className="p-6 flex justify-between items-center">
+            <Container className="p-2 flex justify-between items-center">
                 <Logo />
                 <AppsSearch className="hidden md:flex" />
                 <AppLogo icon={icon} label={label} />

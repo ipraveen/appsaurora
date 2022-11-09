@@ -1,4 +1,4 @@
-import { faCalendar, faPerson, faHourglass } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faPerson, faHourglass, faCropSimple, faStopwatch20 } from '@fortawesome/free-solid-svg-icons';
 
 export const apps = [
     {
@@ -25,6 +25,22 @@ export const apps = [
                 id: 'timer',
                 label: 'timer',
                 icon: faHourglass,
+            },
+            {
+                id: 'countdown',
+                label: 'Countdown',
+                icon: faStopwatch20,
+            },
+        ],
+    },
+    {
+        groupId: 'photoimage',
+        groupLabel: 'Image & Photo',
+        items: [
+            {
+                id: 'imageCropper',
+                label: 'Cropper',
+                icon: faCropSimple,
             },
         ],
     },

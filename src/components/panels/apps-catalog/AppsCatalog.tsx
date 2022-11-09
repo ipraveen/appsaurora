@@ -8,24 +8,24 @@ interface Props {}
 
 const AppsCatalog: React.FC<Props> = (props) => {
     return (
-        <div>
+        <div className="flex flex-col gap-6">
             {apps.map(({ groupId, groupLabel, items }) => {
                 return (
                     <div key={groupId}>
-                        <h1 className="text-xl">{groupLabel}</h1>
+                        <h1 className="text-xl font-bold text-gray-500">{groupLabel}</h1>
                         <div className="flex items-center py-6 gap-6">
                             {items.map(({ id, label, icon }) => {
                                 return (
                                     <Link to={`/${id}`} state={{ appId: id, icon, label }}>
-                                        <div key={id} className="flex flex-col items-center gap-4">
-                                            <div className="grid place-content-center rounded-full bg-gray-100  w-16 h-16 ">
+                                        <div key={id} className="flex flex-col items-center gap-4 w-24">
+                                            <div className="grid place-content-center rounded-xl bg-indigo-500  w-16 h-16 ">
                                                 <FontAwesomeIcon
                                                     size="2x"
                                                     icon={icon}
-                                                    className="text-sky-800 text-gray-700"
+                                                    className="text-white"
                                                 />
                                             </div>
-                                            <label>{label}</label>
+                                            <label className='text-gray-800'>{label}</label>
                                         </div>
                                     </Link>
                                 );

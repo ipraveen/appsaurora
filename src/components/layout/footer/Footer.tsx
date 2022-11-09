@@ -3,8 +3,10 @@ import Container from '../container/Container';
 
 export default function Footer() {
     return (
-        <footer className="border-b-2 border-stone-300 bg-white py-8 px-6 shadow">
-            <Container className="p-6">Footer</Container>
+        <footer className="border-b-2 border-stone-300 shadow grid place-content-center">
+            <Container className="p-2">
+                <span className="text-gray-600">appsaurora © All rights are reserved | {new Date().getFullYear()}</span>
+            </Container>
         </footer>
     );
 }
