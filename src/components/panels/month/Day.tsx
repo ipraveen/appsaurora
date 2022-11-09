@@ -17,13 +17,15 @@ interface Props {
 }
 
 const getHighlightStyle = (highlight: string) => {
+    let color = 'bg-indigo-100';
+
     switch (highlight) {
         case 'start':
-            return 'rounded-l-full bg-gray-400';
+            return 'rounded-l-full ' + color;
         case 'end':
-            return 'rounded-r-full bg-gray-400';
+            return 'rounded-r-full ' + color;
         case 'between':
-            return 'bg-gray-200';
+            return 'bg-blue-200 ' + color;
     }
 
     return '';
@@ -47,7 +49,7 @@ const Day: React.FC<Props> = ({ className = '', year, month, day, highlight, onC
             data-id={value}
             className={`${getHighlightStyle(
                 highlight
-            )} calender-day w-10 h-10 grid place-content-center text-gray-600 cursor-pointer p-3`}
+            )}  calender-day w-10 h-10 grid place-content-center text-gray-600 cursor-pointer p-3`}
             onClick={handleClick}
         >
             {day}

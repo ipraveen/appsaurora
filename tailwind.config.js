@@ -11,7 +11,7 @@ module.exports = {
             sm: '480px',
             md: '768px',
             lg: '976px',
-            xl: '976px', //'1440px',
+            xl: '1200px', //'1440px',
         },
         fontFamily: {
             theme: ['"Baloo 2"', 'cursive', 'sans-serif'],

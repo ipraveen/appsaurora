@@ -1,13 +1,18 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
-export default function AppLogo() {
+interface Props {
+    icon?: IconDefinition;
+    label?: string;
+}
+export default function AppLogo({ icon, label }: Props) {
+
     return (
         <div className="flex justify-start items-center gap-2">
-            <FontAwesomeIcon size="2x" icon={faCalendar} />
-            <h1 className="text-2xl font-medium">
-                <div className="font-theme">Calender </div>
+            {icon && <FontAwesomeIcon size="2x" icon={icon} className="text-sky-800" />}
+            <h1 className="text-4xl">
+                <div className="font-theme text-sky-800">{label}</div>
             </h1>
         </div>
     );

@@ -9,22 +9,31 @@ interface Props {
 }
 
 const Header: React.FC<Props> = ({ year, startDate, endDate }) => {
-    if (!(startDate && endDate)) return null;
-
+    const showStats = startDate && endDate;
     const { days, weekends, weekdays } = getDateRangeDetails(startDate, endDate);
 
     return (
-        <div>
-            <div className="flex items-center justify-center p-2 ">
-                <span className="text-sm text-gray-500">
-                    {formateDate(startDate)} - {formateDate(endDate)}{' '}
-                </span>
-            </div>
-            <div className="flex items-center justify-around p-4">
-                <HeaderInfo value={days} label="Days: " />
-                <HeaderInfo value={weekends} label="Weekends: " />
-                <HeaderInfo value={weekdays} label="Weekdays" />
-            </div>
+        <div className="sticky top-0 z-10 bg-white rounded-t-xl">
+            {!showStats && (
+                <>
+                    <h1 className="h-24 grid place-content-center text-4xl">{year}</h1>
+                </>
+            )}
+
+            {showStats && (
+                <>
+                    <div className="flex items-center justify-center p-2 ">
+                        <span className="text-sm text-gray-500">
+                            {formateDate(startDate)} - {formateDate(endDate)}{' '}
+                        </span>
+                    </div>
+                    <div className="flex items-center justify-around p-4">
+                        <HeaderInfo value={days} label="Days: " />
+                        <HeaderInfo value={weekends} label="Weekends: " />
+                        <HeaderInfo value={weekdays} label="Weekdays" />
+                    </div>
+                </>
+            )}
         </div>
     );
 };

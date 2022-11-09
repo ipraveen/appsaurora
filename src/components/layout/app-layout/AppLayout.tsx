@@ -1,16 +1,22 @@
 import React from 'react';
 import { Header, Footer } from 'components/layout';
 import * as styles from './applayout.module.css';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 interface Props {
     children: React.ReactNode;
+    state?: {
+        appId: string;
+        icon: IconDefinition;
+        label: string;
+    };
 }
 
-export default function AppLayout({ children }: Props) {
+export default function AppLayout({ children, state }: Props) {
     return (
-        <div className={styles.app}>
-            <Header />
-            <main className='border border-solid rounded-xl border-stone-300 container mx-auto my-6'>{children}</main>
+        <div className={`${styles.app}  bg-gray-100`}>
+            <Header icon={state?.icon} label={state?.label} />
+            <main className="container mx-auto my-6  bg-white py-8 px-6 shadow rounded-lg sm:px-10">{children}</main>
             <Footer />
         </div>
     );
