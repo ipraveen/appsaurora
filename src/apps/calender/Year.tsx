@@ -14,8 +14,8 @@ const Year: React.FC<Props> = ({ year, onClick, startDate, endDate }) => {
         <div>
             <div className="grid grid-cols-3 gap-20">
                 {months.map(({ value, label }) => (
-                    <div>
-                        <h1 className="text-red-900 text-xl mb-2">{label}</h1>
+                    <div className='border rounded-4xl border-orange-200 p-6'>
+                        <h1 className="text-orange-900 font-semibold align-middle text-md mb-2 uppercase">{label}</h1>
                         <Month
                             key={value}
                             year={year}

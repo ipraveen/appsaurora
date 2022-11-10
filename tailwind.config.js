@@ -27,6 +27,7 @@ module.exports = {
             },
             colors: {
                 theme: 'border-stone-300',
+                selection: 'bg-orange-100'
             },
         },
     },

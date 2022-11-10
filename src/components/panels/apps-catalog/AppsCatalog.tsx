@@ -12,13 +12,13 @@ const AppsCatalog: React.FC<Props> = (props) => {
             {apps.map(({ groupId, groupLabel, items }) => {
                 return (
                     <div key={groupId}>
-                        <h1 className="text-xl font-bold text-gray-500">{groupLabel}</h1>
+                        <h1 className="text-xl font-bold text-slate-500">{groupLabel}</h1>
                         <div className="flex items-center py-6 gap-6">
                             {items.map(({ id, label, icon }) => {
                                 return (
                                     <Link to={`/${id}`} state={{ appId: id, icon, label }}>
                                         <div key={id} className="flex flex-col items-center gap-4 w-24">
-                                            <div className="grid place-content-center rounded-xl bg-indigo-500  w-16 h-16 ">
+                                            <div className="grid place-content-center rounded-xl bg-orange-300 w-16 h-16 ">
                                                 <FontAwesomeIcon
                                                     size="2x"
                                                     icon={icon}

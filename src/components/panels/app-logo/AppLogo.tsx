@@ -10,7 +10,7 @@ export default function AppLogo({ icon, label }: Props) {
     return (
         <div className="flex justify-start items-center gap-2">
             {icon && (
-                <div className="grid place-content-center rounded-xl bg-indigo-500  w-8 h-8 ">
+                <div className="grid place-content-center rounded-xl bg-orange-500  w-8 h-8 ">
                     <FontAwesomeIcon icon={icon} className="text-lg text-white" />
                 </div>
             )}

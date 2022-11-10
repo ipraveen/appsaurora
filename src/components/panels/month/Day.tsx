@@ -17,7 +17,7 @@ interface Props {
 }
 
 const getHighlightStyle = (highlight: string) => {
-    let color = 'bg-indigo-100';
+    let color = 'bg-orange-100';
 
     switch (highlight) {
         case 'start':
@@ -25,7 +25,7 @@ const getHighlightStyle = (highlight: string) => {
         case 'end':
             return 'rounded-r-full ' + color;
         case 'between':
-            return 'bg-blue-200 ' + color;
+            return  color;
     }
 
     return '';
