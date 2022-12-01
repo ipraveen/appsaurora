@@ -10,14 +10,18 @@ const config = {
     },
     graphqlTypegen: true,
     plugins: [
+        'gatsby-plugin-image',
+        'gatsby-plugin-fontawesome-css',
+        'gatsby-plugin-material-ui',
+        'gatsby-plugin-postcss',
+        'gatsby-plugin-mdx',
+        'gatsby-plugin-sharp',
         {
             resolve: 'gatsby-plugin-google-analytics',
             options: {
                 trackingId: 'UA-54655188-1',
             },
         },
-        'gatsby-plugin-image',
-        'gatsby-plugin-fontawesome-css',
         'gatsby-plugin-sitemap',
         {
             resolve: 'gatsby-plugin-manifest',
@@ -25,9 +29,7 @@ const config = {
                 icon: 'src/images/icon.png',
             },
         },
-        'gatsby-plugin-postcss',
-        'gatsby-plugin-mdx',
-        'gatsby-plugin-sharp',
+
         'gatsby-transformer-sharp',
         {
             resolve: 'gatsby-source-filesystem',

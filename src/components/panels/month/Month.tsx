@@ -50,7 +50,7 @@ const Month: React.FC<Props> = ({ monthClassName, dayClassName, year, month, sta
     }
 
     return (
-        <div className={`grid grid-cols-7 grid-rows-5 w-72`}>
+        <div className={`grid grid-cols-7 grid-rows-5 min-w-70`}>
             <WeekHeader />
             {days}
         </div>

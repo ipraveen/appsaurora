@@ -15,10 +15,10 @@ const Header: React.FC<Props> = ({ year, startDate, endDate }) => {
     const { days, weekends, weekdays } = getDateRangeDetails(startDate, endDate);
 
     return (
-        <div className="sticky top-0 z-10 bg-orange-50 rounded-4xl transition duration-1000 ease-out">
+        <div className="sticky top-0 z-10 bg-slate-200 rounded-4xl transition duration-1000 ease-out">
             {!showStats && (
                 <>
-                    <h1 className="grid place-content-center text-4xl text-orange-800 p-4">{year}</h1>
+                    <h1 className="grid place-content-center text-4xl text-gray-700 p-4">{year}</h1>
                     <div className="flex justify-around px-6 py-4">
                         <div className='flex gap-2 items-center text-sm text-slate-600' >
                             <FontAwesomeIcon className="" icon={faInfoCircle} />
@@ -36,7 +36,7 @@ const Header: React.FC<Props> = ({ year, startDate, endDate }) => {
             {showStats && (
                 <>
                     <div className="flex items-center justify-center p-2 ">
-                        <span className="text-sm text-orange-900">
+                        <span className="text-sm text-slate-900">
                             {formateDate(startDate)} - {formateDate(endDate)}{' '}
                         </span>
                     </div>

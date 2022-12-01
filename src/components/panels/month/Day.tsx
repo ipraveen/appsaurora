@@ -17,7 +17,7 @@ interface Props {
 }
 
 const getHighlightStyle = (highlight: string) => {
-    let color = 'bg-orange-100';
+    let color = 'bg-slate-200';
 
     switch (highlight) {
         case 'start':
