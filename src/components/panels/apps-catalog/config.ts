@@ -50,7 +50,8 @@ const apps = [
 
 export const getApps = () => {
     return apps.map((app) => {
-        const isDevOverride = window?.localStorage.getItem('APPSAURORA_devOverride') === 'true';
+        const isDevOverride =
+            typeof window !== 'undefined' && window.localStorage.getItem('APPSAURORA_devOverride') === 'true';
         if (isDevOverride) {
             return app;
         }
