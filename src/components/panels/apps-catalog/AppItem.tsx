@@ -11,7 +11,7 @@ interface Props {
 const AppItem: React.FC<Props> = ({ id, label, icon }) => {
     return (
         <Link
-            className="flex flex-col align-middle justify-center text-center gap-3 cursor-pointer w-36 h-32 bg-white shadow-md rounded-md"
+            className="flex flex-col justify-center items-center gap-3 cursor-pointer w-36 h-32 bg-white shadow-md rounded-md"
             key={id}
             to={`/${id}`}
             state={{ appId: id, icon, label }}
