@@ -5,8 +5,11 @@ const path = require('path');
 
 const config = {
     siteMetadata: {
-        title: `appsaurora`,
-        siteUrl: `https://www.yourdomain.tld`,
+        title: `AppsAurora`,
+        siteUrl: `https://appsaurora.com/`,
+        description: `AppsAurora has all the apps you will need in your daily life. A Calender, a Timer, an Alarm, image cropper...well you name it!`,
+        image: `/favicon-32x32.png`,
+        twitterUsername: '@i_praveensingh'
     },
     graphqlTypegen: true,
     plugins: [
