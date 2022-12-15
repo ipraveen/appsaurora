@@ -14,10 +14,9 @@ interface Props {
 
 export default function AppLayout({ children, state }: Props) {
     return (
-        <div className={`${styles.app} bg-slate-50`}>
+        <div className={`${styles.app} `}>
             <Header icon={state?.icon} label={state?.label} />
-
-            <main className="container mx-auto my-4 py-6 px-4">{children}</main>
+            <main className="container mx-auto my-4 py-6 px-4 ">{children}</main>
             <Footer />
         </div>
     );

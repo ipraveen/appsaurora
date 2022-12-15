@@ -9,14 +9,8 @@ export default function Logo() {
                 <img className="w-12 h-12 text-slate-800" src={logo} alt="" />
                 <h1 className="text-4xl font-medium">
                     <div className="text-slate-600">
-                        <span className="text-slate-600">apps</span>
-                        <b
-                            style={{
-                                color: '#3478b7',
-                            }}
-                        >
-                            aurora
-                        </b>
+                        <span className="text-slate-600 tracking-wide">apps</span>
+                        <b className="text-theme-800 tracking-wide">aurora</b>
                     </div>
                 </h1>
             </div>

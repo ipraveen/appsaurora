@@ -1,6 +1,5 @@
-import Header from './Header';
+import CalenderHeader from './CalenderHeader';
 import React, { MouseEvent, useState } from 'react';
-import * as style from './container.module.css';
 import Year from './Year';
 import { compare } from './helper';
 
@@ -48,7 +47,7 @@ const Calender = () => {
 
     return (
         <div onClick={onClearClick}>
-            <Header year={year} startDate={startDate} endDate={endDate} />
+            <CalenderHeader year={year} startDate={startDate} endDate={endDate} />
             <div className="p-6">
                 <Year year={year} onClick={onClick} startDate={startDate} endDate={endDate} />
             </div>

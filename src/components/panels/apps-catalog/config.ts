@@ -1,6 +1,6 @@
 import { faCalendar, faPerson, faHourglass, faCropSimple, faStopwatch20 } from '@fortawesome/free-solid-svg-icons';
 
-export const apps = [
+const apps = [
     {
         groupId: 'calender',
         groupLabel: 'Calender',
@@ -12,7 +12,7 @@ export const apps = [
             },
             {
                 id: 'age',
-                label: 'my age',
+                label: 'Age',
                 icon: faPerson,
             },
         ],
@@ -23,25 +23,42 @@ export const apps = [
         items: [
             {
                 id: 'timer',
-                label: 'timer',
+                label: 'Timer',
                 icon: faHourglass,
             },
             {
                 id: 'countdown',
                 label: 'Countdown',
                 icon: faStopwatch20,
+                inDev: true,
             },
         ],
     },
-    {
-        groupId: 'photoimage',
-        groupLabel: 'Image & Photo',
-        items: [
-            {
-                id: 'imageCropper',
-                label: 'Cropper',
-                icon: faCropSimple,
-            },
-        ],
-    },
+    // {
+    //     groupId: 'photoimage',
+    //     groupLabel: 'Image & Photo',
+    //     items: [
+    //         {
+    //             id: 'imageCropper',
+    //             label: 'Cropper',
+    //             icon: faCropSimple,
+    //             inDev: true,
+    //         },
+    //     ],
+    // },
 ];
+
+export const getApps = () => {
+    return apps.map((app) => {
+        const isDevOverride = localStorage.getItem('APPSAURORA_devOverride') === 'true';
+        if (isDevOverride) {
+            return app;
+        }
+
+        const items = app.items.filter((item) => item.inDev !== true);
+        return {
+            ...app,
+            items,
+        };
+    });
+};

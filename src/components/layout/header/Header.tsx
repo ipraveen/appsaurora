@@ -14,7 +14,7 @@ export default function Header({ icon, label }: Props) {
             <Container className="p-2 flex justify-between items-center">
                 <Logo />
                 <AppsSearch className="hidden md:flex" />
-                <AppLogo icon={icon} label={label} />
+                <AppLogo icon={icon} label={label} type="inline-block"/>
             </Container>
         </header>
     );

@@ -18,10 +18,10 @@ interface Props {
 const AppsSection: React.FC<Props> = ({ label, items }) => {
     return (
         <section>
-            <h1 className="text-md text-cyan-800">{label}</h1>
-            <div className="flex items-center py-6 gap-6">
+            <h2 className='font-semibold'>{label}</h2>
+            <div className="flex items-center py-6 gap-10">
                 {items.map(({ id, label, icon }) => {
-                    return <AppItem id={id} label={label} icon={icon} />;
+                    return <AppItem key={id} id={id} label={label} icon={icon} />;
                 })}
             </div>
         </section>

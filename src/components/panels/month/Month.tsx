@@ -4,20 +4,19 @@ import { addDays, compare } from '../../../apps/calender/helper';
 import WeekHeader from './WeekHeader';
 
 interface Props {
-    monthClassName?: string;
+    label: string;
     dayClassName?: string;
     year: number;
     month: number;
     onClick: (obj: { value: string; year: number; month: number; day: number }) => void;
     startDate: string;
     endDate: string;
+    tabIndex?: number;
 }
 
-const ROWS = 5;
-const COLS = 7;
 const FIRST_DAY = 1;
 
-const Month: React.FC<Props> = ({ monthClassName, dayClassName, year, month, startDate, endDate, onClick }) => {
+const Month = ({ label, dayClassName, year, month, startDate, endDate, onClick, tabIndex }: Props) => {
     const date = new Date(year, month, FIRST_DAY);
     const firstDayOfNextMonth = new Date(year, month + 1, FIRST_DAY);
 
@@ -50,9 +49,12 @@ const Month: React.FC<Props> = ({ monthClassName, dayClassName, year, month, sta
     }
 
     return (
-        <div className={`grid grid-cols-7 grid-rows-5 min-w-70`}>
-            <WeekHeader />
-            {days}
+        <div className="border rounded-2xl border-theme-400 p-6 outline-slate-400 bg-white" tabIndex={tabIndex}>
+            <h1 className="text-theme-800 font-semibold align-middle text-md mb-2 uppercase">{label}</h1>
+            <div className={`grid grid-cols-7 grid-rows-5 min-w-70`}>
+                <WeekHeader />
+                {days}
+            </div>
         </div>
     );
 };

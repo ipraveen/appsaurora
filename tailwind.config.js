@@ -26,7 +26,10 @@ module.exports = {
                 '4xl': '2rem',
             },
             colors: {
-                theme: 'border-stone-300',
+                "theme-800": '#7eab9a',
+                "theme-900": '#126171',
+                "theme-400": "#C5E0D6",
+                "theme-blue": "#4b9dea",
                 selection: 'bg-orange-100'
             },
         },
