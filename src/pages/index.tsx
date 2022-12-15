@@ -1,13 +1,22 @@
 import * as React from 'react';
-import { AppLayout } from 'components/layout';
+// import { AppLayout } from 'components/layout';
 import { AppsCatalog } from 'components/panels';
 
-const AgeIndexPagePage = () => {
+import { Header, Footer } from 'components/layout';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
+const AgeIndexPagePage = () => {
     return (
-        <AppLayout>
-            <AppsCatalog />
-        </AppLayout>
+        <div className="bg-gray-100">
+            <Header />
+            <div>
+                <main className="container mx-auto my-4 py-6 px-4">
+                    <AppsCatalog />
+                </main>
+            </div>
+
+            <Footer />
+        </div>
     );
 };
 

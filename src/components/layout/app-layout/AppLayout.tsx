@@ -17,7 +17,7 @@ export default function AppLayout({ children, state }: Props) {
         <div className={`${styles.app} bg-slate-50`}>
             <Header icon={state?.icon} label={state?.label} />
 
-            <main className="container mx-auto my-4 py-6 px-4 rounded-xl drop-shadow-md bg-slate-100">{children}</main>
+            <main className="container mx-auto my-4 py-6 px-4">{children}</main>
             <Footer />
         </div>
     );
