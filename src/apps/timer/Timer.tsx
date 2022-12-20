@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import FlipCard from './FlipCard';
-import { Button, RadioSelect, TimeSelector } from 'components/common';
-import SwitchTab from 'components/common/switch-tab';
+import { TabOptions } from 'components/common';
+import TimerInput from './TimerInput';
 
 interface Props {}
 
@@ -98,16 +98,38 @@ const Countdown: React.FC<Props> = (props) => {
         }
     }, [start]);
 
+    const [tabValue, setTabValue] = useState('radial');
+
+    const onTabChange = (value) => {
+        console.log(value);
+        setTabValue(value);
+    };
+
     return (
-        <div>
-            <SwitchTab />
-            <RadioSelect />
-            <TimeSelector onChange={onChange} />{' '}
-            <Button onClick={onButtonClick}> {start === true ? 'Stop' : 'Start'}</Button>
-            <div className="flex justify-center gap-6">
-                <FlipCard value={hour.join('')} />
-                <FlipCard value={min.join('')} />
-                <FlipCard value={sec.join('')} />
+        <div className="container">
+            <TabOptions
+                name="timerTabs"
+                onChange={onTabChange}
+                value={tabValue}
+                options={[
+                    {
+                        value: 'radial',
+                        label: 'Radial',
+                    },
+                    {
+                        value: 'flipCards',
+                        label: 'Flip Cards',
+                    },
+                ]}
+            />
+
+            <div className="flex flex-col justify-center gap-6">
+                <TimerInput />
+                <div className="flex justify-center gap-6">
+                    <FlipCard value={hour.join('')} />
+                    <FlipCard value={min.join('')} />
+                    <FlipCard value={sec.join('')} />
+                </div>
             </div>
         </div>
     );

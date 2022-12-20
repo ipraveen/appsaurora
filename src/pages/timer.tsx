@@ -1,15 +1,29 @@
 import * as React from 'react';
 import { AppLayout } from 'components/layout';
+import { Timer } from 'apps/index';
+import SEO from 'components/seo/SEO';
+import { HeadProps, PageProps } from 'gatsby';
 
-const TimerPage = (props: any) => {
+const TimerPage = (props: PageProps) => {
     const { location } = props;
     const { state } = location;
 
     return (
         <AppLayout state={state}>
-           <h1>Timer</h1>
+            <Timer />
         </AppLayout>
     );
 };
 
 export default TimerPage;
+
+export const Head = (props: HeadProps) => {
+    const { location } = props;
+    return (
+        <SEO
+            title="Timer"
+            description="A Timer app with radial and flip card based countdown."
+            pathname={location.pathname}
+        />
+    );
+};

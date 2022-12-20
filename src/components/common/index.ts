@@ -1,5 +1,5 @@
 import TimeSelector from './time-selector/TimeSelector';
 import Button from './button/Button';
-import RadioSelect from './radio-select/RadioSelect';
+import TabOptions from './tab-options/TabOptions';
 
-export { TimeSelector, Button, RadioSelect };
+export { TimeSelector, Button, TabOptions };

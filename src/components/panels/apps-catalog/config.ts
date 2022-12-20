@@ -3,7 +3,7 @@ import { faCalendar, faPerson, faHourglass, faCropSimple, faStopwatch20 } from '
 const apps = [
     {
         groupId: 'calender',
-        groupLabel: 'Calender',
+        groupLabel: 'Calender & Days',
         items: [
             {
                 id: 'calender',
@@ -19,7 +19,7 @@ const apps = [
     },
     {
         groupId: 'dateTime',
-        groupLabel: 'Date & Time',
+        groupLabel: 'Time',
         items: [
             {
                 id: 'timer',

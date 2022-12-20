@@ -1,4 +1,4 @@
 import Calender from './calender/Calender';
-import Countdown from './countdown/Countdown';
+import Timer from './timer/Timer';
 
-export { Calender, Countdown };
+export { Calender, Timer };
