@@ -16,12 +16,12 @@ const WordCards = (props: Props) => {
 
     useEffect(() => {
         const load = async () => {
-            const data = await fetchUtil.getText(
-                'https://raw.githubusercontent.com/ipraveen/common-data/master/words.md'
-            );
+            // const url = 'https://raw.githubusercontent.com/ipraveen/common-data/master/words.md';
+            const url = 'https://cdn.jsdelivr.net/gh/ipraveen/common-data/words.md';
+            const data = await fetchUtil.getText(url);
 
             const wordsRes = parseWords(data);
-
+            debugger;
             setWords(wordsRes);
             setLoading(false);
         };
