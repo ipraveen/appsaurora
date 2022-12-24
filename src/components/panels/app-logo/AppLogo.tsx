@@ -29,8 +29,15 @@ export default function AppLogo({ icon, label, type }: Props) {
                     </div>
                 )}
                 <h1 className="text-4xl">
-                    <div className="font-theme text-theme-800">{label}</div>
+                    <small className=" text-theme-800 tracking-wide">{label}</small>
                 </h1>
+
+                {/* <h1 className="text-4xl font-medium">
+                    <div className="text-slate-600">
+                        <span className="text-slate-600 tracking-wide">apps</span>
+                        <b className="text-theme-800 tracking-wide">aurora</b>
+                    </div>
+                </h1> */}
             </div>
         );
     }

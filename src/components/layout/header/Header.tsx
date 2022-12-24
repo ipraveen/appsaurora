@@ -13,7 +13,7 @@ export default function Header({ icon, label }: Props) {
         <header className="colors-theme bg-white  shadow shadow-slate-200 ">
             <Container className="p-2 flex justify-between items-center">
                 <Logo />
-                <AppsSearch className="hidden md:flex" />
+                {/* <AppsSearch className="hidden md:flex" /> */}
                 <AppLogo icon={icon} label={label} type="inline-block"/>
             </Container>
         </header>

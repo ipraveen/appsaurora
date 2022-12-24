@@ -55,6 +55,7 @@ const config = {
             options: {
                 components: path.join(__dirname, 'src/components'),
                 apps: path.join(__dirname, 'src/apps'),
+                utils: path.join(__dirname, 'src/utils'),
                 assets: path.join(__dirname, 'src/assets'),
                 styles: path.join(__dirname, 'src/styles'),
             },

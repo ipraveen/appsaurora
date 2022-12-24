@@ -1,4 +1,4 @@
-import { faCalendar, faPerson, faHourglass, faCropSimple, faStopwatch20 } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faPerson, faHourglass, faCropSimple, faStopwatch20, faFileWord } from '@fortawesome/free-solid-svg-icons';
 
 const apps = [
     {
@@ -31,6 +31,17 @@ const apps = [
                 label: 'Countdown',
                 icon: faStopwatch20,
                 inDev: true,
+            },
+        ],
+    },
+    {
+        groupId: 'english',
+        groupLabel: 'Words & Grammar',
+        items: [
+            {
+                id: 'wordCards',
+                label: 'word cards',
+                icon: faFileWord,
             },
         ],
     },
