@@ -2,12 +2,13 @@ import CalenderHeader from './CalenderHeader';
 import React, { MouseEvent, useState } from 'react';
 import Year from './Year';
 import { compare } from './helper';
+import { getCurrentYear } from 'utils/dateUtil';
 
 const Calender = () => {
-    const [year] = useState(2022);
     const [startDate, setStartDate] = useState<string | null>(null);
     const [endDate, setEndDate] = useState<string | null>(null);
 
+    const year = getCurrentYear();
     const onClick = ({ value }: { value: string }) => {
         console.log('selected date: ', value);
         if (startDate == null) {

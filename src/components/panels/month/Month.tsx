@@ -21,7 +21,8 @@ const Month = ({ label, dayClassName, year, month, startDate, endDate, onClick, 
     const firstDayOfNextMonth = new Date(year, month + 1, FIRST_DAY);
 
     const day = date.getDay();
-    const days: any[] = day === 0 ? [] : Array(date.getDay() - 1).fill(<Day year={year} month={month} day={0} />);
+    const dayNaturalIndex = day === 0 ? 7 : day;
+    const days: any[] = Array(dayNaturalIndex - 1).fill(<Day year={year} month={month} day={0} />);
 
     while (date < firstDayOfNextMonth) {
         let highlight: HIGHLIGHT_TYPE = HIGHLIGHT_TYPE.NONE;
