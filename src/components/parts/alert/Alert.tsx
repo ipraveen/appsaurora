@@ -10,18 +10,16 @@ interface Props {
 }
 
 const StyledAlert = styled(AlertMui)`
-    /* display: flex;
-    justify-content: center; */
+    display: flex;
+    justify-content: center;
 `;
 
 const Alert: React.FC<Props> = ({ type = 'info', title, children }) => {
     return (
-        <div className='flex justify-center'>
-            <StyledAlert severity={type}>
-                {title && <AlertTitle>Info</AlertTitle>}
-                {children}
-            </StyledAlert>
-        </div>
+        <StyledAlert severity={type}>
+            {title && <AlertTitle>Info</AlertTitle>}
+            <p className='text-base'>{children}</p>
+        </StyledAlert>
     );
 };
 

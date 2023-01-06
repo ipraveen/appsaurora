@@ -24,9 +24,10 @@ const Month = ({ label, year, month, startDate, endDate, onClick, tabIndex }: Pr
     const day = date.getDay();
     const dayNaturalIndex = day === 0 ? 7 : day;
 
-    const days: any[] = Array(dayNaturalIndex - 1).map((_, index) => (
-        <Day key={index} year={year} month={month} day={0} />
-    ));
+    const days: any[] = [];
+    for (let i = 0; i < dayNaturalIndex - 1; i++) {
+        days.push(<div key={i} />);
+    }
 
     while (date < firstDayOfNextMonth) {
         let className = 'bg-theme-200';

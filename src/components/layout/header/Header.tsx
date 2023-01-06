@@ -13,7 +13,7 @@ interface Props {
 }
 
 const StyledHeader = styled.header`
-    ${tw`shadow shadow-slate-200 sticky top-0 z-30`}
+    ${tw`shadow shadow-slate-200 sticky top-0 z-30 mb-4`}
     /* background: radial-gradient(55.36% 221.46% at 23.59% 28.54%,#037c8f 1.6%,#18616d 100%); */
      /* background-color: #445d6e; */
     background: radial-gradient(55.36% 221.46% at 23.59% 28.54%,#445d6e 1.6%,rgb(73, 88, 98) 100%);

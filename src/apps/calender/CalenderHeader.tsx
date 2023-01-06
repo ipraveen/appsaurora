@@ -16,9 +16,9 @@ const CalenderHeader: React.FC<Props> = ({ startDate, endDate }) => {
     return (
         <div className="">
             <div className="flex items-center justify-around">
-                <HeaderInfo value={days} label="Days" />
-                <HeaderInfo value={weekends} label="Weekends" />
-                <HeaderInfo value={weekdays} label="Weekdays" />
+                <HeaderInfo value={days} theme="slate" label="Days" />
+                <HeaderInfo value={weekends}  label="Weekends" />
+                <HeaderInfo value={weekdays} theme="red" label="Weekdays" />
             </div>
         </div>
     );

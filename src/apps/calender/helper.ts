@@ -30,5 +30,13 @@ export const getDateRangeDetails = (startDate: string, endDate: string) => {
 
     const weekdays = days - weekends;
 
+    console.log({
+        startDate,
+        endDate,
+        days,
+        weekends,
+        weekdays,
+    });
+
     return { days, weekends, weekdays };
 };
