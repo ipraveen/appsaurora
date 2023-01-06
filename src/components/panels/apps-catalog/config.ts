@@ -1,4 +1,6 @@
-import { faCalendar, faPerson, faHourglass, faCropSimple, faStopwatch20, faFileWord } from '@fortawesome/free-solid-svg-icons';
+// import { faCalendar, faPerson, faHourglass, faCropSimple, faStopwatch20, faFileWord } from '@fortawesome/free-solid-svg-icons';
+
+import { CalendarMonthRounded, EmojiPeople, Spellcheck } from '@mui/icons-material';
 
 const apps = [
     {
@@ -7,41 +9,41 @@ const apps = [
         items: [
             {
                 id: 'calender',
-                label: 'Calender',
-                icon: faCalendar,
+                label: 'Calendar',
+                Icon: CalendarMonthRounded,
             },
             {
                 id: 'age',
                 label: 'Age',
-                icon: faPerson,
+                Icon: EmojiPeople,
             },
         ],
     },
-    {
-        groupId: 'dateTime',
-        groupLabel: 'Time',
-        items: [
-            {
-                id: 'timer',
-                label: 'Timer',
-                icon: faHourglass,
-            },
-            {
-                id: 'countdown',
-                label: 'Countdown',
-                icon: faStopwatch20,
-                inDev: true,
-            },
-        ],
-    },
+    // {
+    //     groupId: 'dateTime',
+    //     groupLabel: 'Time',
+    //     items: [
+    //         {
+    //             id: 'timer',
+    //             label: 'Timer',
+    //             icon: faHourglass,
+    //         },
+    //         {
+    //             id: 'countdown',
+    //             label: 'Countdown',
+    //             icon: faStopwatch20,
+    //             inDev: true,
+    //         },
+    //     ],
+    // },
     {
         groupId: 'english',
         groupLabel: 'Words & Grammar',
         items: [
             {
                 id: 'wordCards',
-                label: 'word cards',
-                icon: faFileWord,
+                label: 'Word Cards',
+                Icon: Spellcheck,
             },
         ],
     },
@@ -73,4 +75,17 @@ export const getApps = () => {
             items,
         };
     });
+};
+
+export const getApp = (appId: string) => {
+    let app;
+    apps.forEach((appItem) => {
+        appItem.items.forEach((item) => {
+            if (item.id === appId) {
+                app = item;
+            }
+        });
+    });
+
+    return app;
 };

@@ -1,19 +1,32 @@
 import React, { MouseEvent } from 'react';
+import MUIButton from '@mui/material/Button';
+import { styled } from '@mui/material';
+import tw from 'twin.macro';
 
 interface Props {
     children: React.ReactNode;
     onClick: (e: MouseEvent) => void;
-    className: string;
+    className?: string;
+    variant?: 'text' | 'contained' | 'outlined';
 }
 
+const StyledButton = styled(MUIButton)`
+    ${tw`bg-banner-800 text-white`}
+
+    background-color: #445d6e !important;
+
+    &:hover{
+        background-color: #42525d !important;
+    }
+`;
+
 const Button: React.FC<Props> = (props) => {
-    const { onClick, children } = props;
-    const className = `px-4 py-2 font-semibold text-sm bg-cyan-500 text-white rounded-md shadow-sm ${props.className}`;
+    const { onClick, children, variant = 'contained', className } = props;
 
     return (
-        <button className={className} onClick={onClick}>
+        <StyledButton variant={variant} className={className} disableElevation onClick={onClick}>
             {children}
-        </button>
+        </StyledButton>
     );
 };
 

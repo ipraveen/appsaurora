@@ -14,7 +14,6 @@ const config = {
     graphqlTypegen: true,
     plugins: [
         'gatsby-plugin-image',
-        'gatsby-plugin-fontawesome-css',
         'gatsby-plugin-material-ui',
         'gatsby-plugin-postcss',
         'gatsby-plugin-mdx',

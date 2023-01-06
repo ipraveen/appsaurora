@@ -8,7 +8,7 @@ const WordCardsPage = (props: PageProps) => {
     const { location } = props;
 
     return (
-        <AppLayout state={location.state}>
+        <AppLayout appName='wordCards'>
             <WordCards />
         </AppLayout>
     );

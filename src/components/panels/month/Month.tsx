@@ -2,7 +2,7 @@ import React from 'react';
 import Day, { HIGHLIGHT_TYPE } from './Day';
 import { addDays } from '../../../apps/calender/helper';
 import WeekHeader from './WeekHeader';
-import Paper from '@mui/material/Paper';
+import { Paper } from 'components/parts';
 import * as dateUtil from 'utils/dateUtil';
 
 interface Props {

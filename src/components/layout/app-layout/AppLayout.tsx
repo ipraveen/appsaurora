@@ -1,16 +1,24 @@
 import React, { useReducer } from 'react';
 import { Header, Footer, PageNotification } from 'components/layout';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import Paper from '@mui/material/Paper';
+import { getApp } from 'components/panels/apps-catalog/config';
+import styled from '@emotion/styled';
 
 interface Props {
     children: React.ReactNode;
+    appName: string;
     state?: {
         appId: string;
         icon: IconDefinition;
         label: string;
     };
 }
+
+const StyledContainer = styled.div`
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+`;
 
 export interface AppProps {
     app: {
@@ -41,16 +49,16 @@ function notificationReducer(state: NotificationStateProps, action: Notification
     throw Error('Unknown action: ' + action.type);
 }
 
-export default function AppLayout({ children, state }: Props) {
+export default function AppLayout({ children, state, appName }: Props) {
     const initialState: NotificationStateProps = {};
     const [notificationState, notificationDispatch] = useReducer(notificationReducer, initialState);
 
-    const app = {
+    const appProps = {
         notification: {
             dispatch: notificationDispatch,
         },
     };
-    const props = { app };
+    const props = { app: appProps };
 
     const childrenWithProps = React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {
@@ -59,12 +67,14 @@ export default function AppLayout({ children, state }: Props) {
         return child;
     });
 
+    const app = getApp(appName);
+
     return (
-        <>
-            <Header icon={state?.icon} label={state?.label} />
+        <StyledContainer>
+            <Header Icon={app?.Icon} label={app?.label} />
             <PageNotification state={notificationState} />
             <div className="container mx-auto my-4 ">{childrenWithProps}</div>
             <Footer />
-        </>
+        </StyledContainer>
     );
 }

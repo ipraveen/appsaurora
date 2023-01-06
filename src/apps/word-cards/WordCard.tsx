@@ -2,6 +2,7 @@ import { Button } from 'components/parts';
 import FlipCard from 'components/parts/flip-card/FlipCard';
 import React, { useState } from 'react';
 import { Word } from './types';
+import { Paper } from 'components/parts';
 
 interface Props {
     word: Word;
@@ -24,11 +25,11 @@ const WordCard = ({ word, onNext, onPrev }: Props) => {
     };
 
     const handlePrev = () => {
-
         setFlipped(false);
         onNext();
+    };
 
-    }
+    const cardCommonClassName = 'grid p-6 w-full h-full place-content-center';
 
     return (
         <div>
@@ -37,37 +38,34 @@ const WordCard = ({ word, onNext, onPrev }: Props) => {
                 onClick={handleClick}
                 className="w-8/12 h-80 max-w-screen-md mx-auto"
                 front={
-                    <div className="grid rounded-xl p-6 w-full h-full place-content-center border-2 border-gray-200 drop-shadow-sm">
+                    <Paper className={cardCommonClassName}>
                         <h1 className="text-6xl text-theme-800 capitalize">{name}</h1>
-                    </div>
+                    </Paper>
                 }
                 back={
-                    <div className="grid  gap-3 rounded-xl p-6 w-full h-full place-content-center border-2 border-gray-200 drop-shadow-sm0">
-                        <h1 className="text-3xl text-slate-700">{name}</h1>
-                        <ol className="list-inside">
+                    <Paper className={cardCommonClassName}>
+                        <h1 className="text-4xl text-theme-800 capitalize">{name}</h1>
+                        <ol className="list-inside my-4">
                             {meanings.map((meaning) => (
                                 <li>
-                                    <p className="leading-6 text-slate-900 text-lg">{meaning}</p>
+                                    <p className="leading-6 text-theme-700 text-lg">{meaning}</p>
                                 </li>
                             ))}
                         </ol>
 
-                        <ol className="ml-4">
+                        <ol className="ml-4 list-disc">
                             {sentences.map((sentence) => (
-                                <li className="leading-6 text-slate-500 text-md">
-                                    <i> {`- ${sentence}`}</i>
+                                <li className="leading-6 text-theme-600 text-md">
+                                    <i> {`${sentence}`}</i>
                                 </li>
                             ))}
                         </ol>
-                    </div>
+                    </Paper>
                 }
             />
-            <div className='flex justify-center gap-6 items-center p-6 h-24'> 
-                {/* <Button className="px-8 text-xl" onClick={handlePrev}>
-                    Prev
-                </Button> */}
+            <div className="flex justify-center gap-6 items-center p-6 h-24">
 
-                <Button className="px-8 text-xl" onClick={handleNext}>
+                <Button onClick={handleNext}>
                     Next
                 </Button>
             </div>

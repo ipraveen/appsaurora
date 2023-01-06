@@ -8,10 +8,10 @@ interface Props {
     icon: any;
 }
 
-const AppItem: React.FC<Props> = ({ id, label, icon }) => {
+const AppItem: React.FC<Props> = ({ id, label, Icon }) => {
     return (
-        <Link className="gap-3 cursor-pointer " key={id} to={`/${id}`} state={{ appId: id, icon, label }}>
-            <AppLogo type="block" icon={icon} label={label} />
+        <Link className="gap-3 cursor-pointer " key={id} to={`/${id}`} state={{ appId: id, Icon, label }}>
+            <AppLogo type="block" Icon={Icon} label={label} />
         </Link>
     );
 };

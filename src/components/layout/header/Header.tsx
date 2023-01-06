@@ -21,13 +21,13 @@ const StyledHeader = styled.header`
    
 `;
 
-export default function Header({ icon, label }: Props) {
+export default function Header({ Icon, label }: Props) {
     return (
         <StyledHeader>
             <Container tw="p-2 flex justify-between items-center">
                 <Logo />
                 {/* <AppsSearch className="hidden md:flex" /> */}
-                <AppLogo icon={icon} label={label} type="inline-block" />
+                <AppLogo Icon={Icon} label={label} type="inline-block" />
             </Container>
         </StyledHeader>
     );

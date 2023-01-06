@@ -20,8 +20,8 @@ const AppsSection: React.FC<Props> = ({ label, items }) => {
         <section>
             <h1 className='font-semibold text-md text-theme-800'>{label}</h1>
             <div className="flex items-center py-6 gap-10">
-                {items.map(({ id, label, icon }) => {
-                    return <AppItem key={id} id={id} label={label} icon={icon} />;
+                {items.map(({ id, label, Icon }) => {
+                    return <AppItem key={id} id={id} label={label} Icon={Icon} />;
                 })}
             </div>
         </section>

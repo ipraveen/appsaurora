@@ -36,6 +36,7 @@ module.exports = {
                 'theme-200': '#e2e8f0',
                 'theme-100': '#f1f5f9',
                 'theme-50': '#f8fafc',
+                'banner-800': '#445d6e',
                 selection: 'bg-orange-100',
             },
         },

@@ -1,13 +1,10 @@
 import * as React from 'react';
 import { AppLayout } from 'components/layout';
 
-const AgePage = (props: any) => {
-    const { location } = props;
-    const { state } = location;
-
+const AgePage = () => {
     return (
-        <AppLayout state={state}>
-           <h1>Age</h1>
+        <AppLayout appName="age">
+            <h1>Age</h1>
         </AppLayout>
     );
 };
