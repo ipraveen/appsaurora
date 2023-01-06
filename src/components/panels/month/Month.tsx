@@ -1,62 +1,72 @@
 import React from 'react';
 import Day, { HIGHLIGHT_TYPE } from './Day';
-import { addDays, compare } from '../../../apps/calender/helper';
+import { addDays } from '../../../apps/calender/helper';
 import WeekHeader from './WeekHeader';
+import Paper from '@mui/material/Paper';
+import * as dateUtil from 'utils/dateUtil';
 
 interface Props {
     label: string;
-    dayClassName?: string;
     year: number;
     month: number;
     onClick: (obj: { value: string; year: number; month: number; day: number }) => void;
-    startDate: string;
-    endDate: string;
+    startDate?: string;
+    endDate?: string;
     tabIndex?: number;
 }
 
 const FIRST_DAY = 1;
 
-const Month = ({ label, dayClassName, year, month, startDate, endDate, onClick, tabIndex }: Props) => {
+const Month = ({ label, year, month, startDate, endDate, onClick, tabIndex }: Props) => {
     const date = new Date(year, month, FIRST_DAY);
     const firstDayOfNextMonth = new Date(year, month + 1, FIRST_DAY);
 
     const day = date.getDay();
     const dayNaturalIndex = day === 0 ? 7 : day;
-    const days: any[] = Array(dayNaturalIndex - 1).fill(<Day year={year} month={month} day={0} />);
+
+    const days: any[] = Array(dayNaturalIndex - 1).map((_, index) => (
+        <Day key={index} year={year} month={month} day={0} />
+    ));
 
     while (date < firstDayOfNextMonth) {
-        let highlight: HIGHLIGHT_TYPE = HIGHLIGHT_TYPE.NONE;
+        let className = 'bg-theme-200';
 
-        if (compare(date, new Date(startDate)) === 0) {
-            highlight = HIGHLIGHT_TYPE.START;
-        } else if (compare(date, new Date(endDate)) === 0) {
-            highlight = HIGHLIGHT_TYPE.END;
-        } else if (compare(date, new Date(startDate)) === 1 && compare(date, new Date(endDate)) === -1) {
-            highlight = HIGHLIGHT_TYPE.BETWEEN;
+        if (startDate && dateUtil.compare(date, startDate) === 0) {
+            className += ' rounded-l-full';
+        } else if (endDate && dateUtil.compare(date, endDate) === 0) {
+            className += ' rounded-r-full';
+        } else if (
+            startDate &&
+            endDate &&
+            dateUtil.compare(date, startDate) === 1 &&
+            dateUtil.compare(date, new Date(endDate)) === -1
+        ) {
+            className = 'bg-theme-200';
+        } else {
+            className = '';
         }
 
         days.push(
             <Day
                 onClick={onClick}
-                className={dayClassName}
+                className={className}
                 key={date.getTime()}
                 year={year}
                 month={month}
                 day={date.getDate()}
-                highlight={highlight}
             />
         );
         addDays(date, 1);
     }
-
+    // className="border rounded-2xl border-theme-400 p-6 outline-slate-400 bg-white"
     return (
-        <div className="border rounded-2xl border-theme-400 p-6 outline-slate-400 bg-white" tabIndex={tabIndex}>
-            <h1 className="text-theme-800 font-semibold align-middle text-md mb-2 uppercase">{label}</h1>
-            <div className={`grid grid-cols-7 grid-rows-5 min-w-70`}>
+        <Paper elevation={0} variant="outlined" className="p-6" tabIndex={tabIndex}>
+            <h1 className="text-theme-00 font-semibold align-middle text-md mb-2 uppercase">{label}</h1>
+            <div className={`grid grid-cols-7 grid-rows-5 min-w-70 `}>
                 <WeekHeader />
                 {days}
             </div>
-        </div>
+        </Paper>
     );
 };
 

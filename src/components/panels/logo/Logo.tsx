@@ -9,8 +9,8 @@ export default function Logo() {
                 <img className="w-12 h-12 text-slate-800" src={logo} alt="" />
                 <h1 className="text-4xl font-medium">
                     <div className="text-slate-600">
-                        <span className="text-slate-600 tracking-wide">apps</span>
-                        <b className="text-theme-800 tracking-wide">aurora</b>
+                        <span className="text-white tracking-wide font-light">apps</span>
+                        <strong className="text-white tracking-wide font-medium">aurora</strong>
                     </div>
                 </h1>
             </div>

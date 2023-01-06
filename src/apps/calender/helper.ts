@@ -32,13 +32,3 @@ export const getDateRangeDetails = (startDate: string, endDate: string) => {
 
     return { days, weekends, weekdays };
 };
-
-export const compare = (d1: Date, d2: Date) => {
-    if (d1 > d2) {
-        return 1;
-    } else if (d1 < d2) {
-        return -1;
-    } else {
-        return 0;
-    }
-};

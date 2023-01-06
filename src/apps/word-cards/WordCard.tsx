@@ -1,5 +1,5 @@
-import { Button } from 'components/common';
-import FlipCard from 'components/common/flip-card/FlipCard';
+import { Button } from 'components/parts';
+import FlipCard from 'components/parts/flip-card/FlipCard';
 import React, { useState } from 'react';
 import { Word } from './types';
 

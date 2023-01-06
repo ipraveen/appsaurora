@@ -9,7 +9,7 @@ const config = {
         siteUrl: `https://appsaurora.com/`,
         description: `AppsAurora has all the apps you will need in your daily life. A Calender, a Timer, an Alarm, image cropper...well you name it!`,
         image: `/favicon-32x32.png`,
-        twitterUsername: '@i_praveensingh'
+        twitterUsername: '@i_praveensingh',
     },
     graphqlTypegen: true,
     plugins: [
@@ -19,6 +19,7 @@ const config = {
         'gatsby-plugin-postcss',
         'gatsby-plugin-mdx',
         'gatsby-plugin-sharp',
+        'gatsby-plugin-emotion',
         {
             resolve: 'gatsby-plugin-google-analytics',
             options: {

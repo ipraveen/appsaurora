@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import FlipCard from './FlipCard';
-import { TabOptions } from 'components/common';
+import { TabOptions } from 'components/parts';
 import TimerInput from './TimerInput';
 
 interface Props {}

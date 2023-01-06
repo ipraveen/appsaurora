@@ -8,7 +8,7 @@ const WeekHeader: React.FC<Props> = (props) => {
     return (
         <>
             {HEADER.map((h) => (
-                <div key={h} className="grid place-content-center text-slate-900">{h}</div>
+                <div key={h} className="grid place-content-center text-theme-600">{h}</div>
             ))}
         </>
     );

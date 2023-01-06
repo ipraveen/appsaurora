@@ -6,18 +6,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
 
 body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; */
+    font-family: Roboto, system-ui, sans-serif;
+    background-color: rgb(249, 249, 250);
+    padding: 0;
+    margin: 0;
 }
 
 h1,
 h2 {
     color: #0d0c22;
-    font-family: Helvetica, Arial, sans-serif;
+    /* font-family: Helvetica, Arial, sans-serif; */
     line-height: 20px;
 }
 
 label {
-    font-family: Helvetica, Arial, sans-serif;
+    /* font-family: Helvetica, Arial, sans-serif; */
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
