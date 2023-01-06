@@ -21,7 +21,6 @@ const WordCards = (props: Props) => {
             const data = await fetchUtil.getText(url);
 
             const wordsRes = parseWords(data);
-            debugger;
             setWords(wordsRes);
             setLoading(false);
         };
