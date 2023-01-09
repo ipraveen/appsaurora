@@ -1,3 +1,5 @@
+import { isWeekend } from 'utils/dateUtil';
+
 export const addDays = (date: Date, value: number) => date.setDate(date.getDate() + value);
 
 export const subtractDays = (date: Date, value: number) => addDays(date, -1 * value);
@@ -11,8 +13,6 @@ export const formateDate = (date: Date | string | null) => {
 
     return new Intl.DateTimeFormat().format(date);
 };
-
-export const isWeekend = (date: Date) => date.getDay() === 0 || date.getDay() === 6;
 
 export const getDateRangeDetails = (startDate: string, endDate: string) => {
     const sDate = new Date(startDate);

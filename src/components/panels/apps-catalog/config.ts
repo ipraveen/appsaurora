@@ -4,17 +4,23 @@ import { CalendarMonthRounded, EmojiPeople, Spellcheck } from '@mui/icons-materi
 
 const apps = [
     {
-        groupId: 'calender',
-        groupLabel: 'Calender & Days',
+        groupId: 'dateAndTime',
+        groupLabel: 'Date and Time',
         items: [
             {
-                id: 'calender',
+                id: 'calendar',
                 label: 'Calendar',
                 Icon: CalendarMonthRounded,
             },
+        ],
+    },
+    {
+        groupId: 'aboutMe',
+        groupLabel: 'About Me',
+        items: [
             {
                 id: 'age',
-                label: 'Age',
+                label: 'Age Calculator',
                 Icon: EmojiPeople,
             },
         ],

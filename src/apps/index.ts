@@ -1,5 +1,5 @@
-import Calender from './calender/Calender';
+import Calendar from './calendar/Calendar';
 import Timer from './timer/Timer';
 import WordCards from './word-cards/WordCards';
 
-export { Calender, Timer, WordCards };
+export { Calendar, Timer, WordCards };

@@ -1,25 +1,25 @@
 import * as React from 'react';
-import { Calender } from 'apps';
+import { Calendar } from 'apps';
 import { AppLayout } from 'components/layout';
 import SEO from 'components/seo/SEO';
 import { HeadProps } from 'gatsby';
 
-const CalenderPage = () => {
+const CalendarPage = () => {
     return (
-        <AppLayout appName="calender">
-            <Calender />
+        <AppLayout appName="calendar">
+            <Calendar />
         </AppLayout>
     );
 };
 
-export default CalenderPage;
+export default CalendarPage;
 
 export const Head = (props: HeadProps) => {
     const { location } = props;
     return (
         <SEO
-            title="Calender"
-            description="A Simple Calender app to see the dates, find date range, weekends, weekdays, etc."
+            title="Calendar"
+            description="A Simple Calendar app to see the dates, find date range, weekends, weekdays, etc."
             pathname={location.pathname}
         />
     );

@@ -2,23 +2,26 @@ import React from 'react';
 import AlertMui from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import styled from '@emotion/styled';
+import tw from 'twin.macro';
 
 interface Props {
-    type: 'info' | 'warning';
+    type: 'info' | 'warning' | 'success';
     title?: string;
     children: React.ReactNode;
+    variant?: 'filled';
+    className?: string;
 }
 
 const StyledAlert = styled(AlertMui)`
-    display: flex;
-    justify-content: center;
+    ${tw``}/* display: flex;
+    justify-content: center; */
 `;
 
-const Alert: React.FC<Props> = ({ type = 'info', title, children }) => {
+const Alert: React.FC<Props> = ({ type = 'info', title, children, variant, className }) => {
     return (
-        <StyledAlert severity={type}>
-            {title && <AlertTitle>Info</AlertTitle>}
-            <p className='text-base'>{children}</p>
+        <StyledAlert className={className} severity={type} variant={variant}>
+            {title && <AlertTitle>{title}</AlertTitle>}
+            {children}
         </StyledAlert>
     );
 };

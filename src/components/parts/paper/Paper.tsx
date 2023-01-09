@@ -6,11 +6,12 @@ interface Props {
     children: React.ReactNode;
     tabIndex?: number;
     className?: string;
+    variant?: 'outlined';
 }
 
-const Paper: React.FC<Props> = ({ children, tabIndex, className }) => {
+const Paper: React.FC<Props> = ({ children, tabIndex, className, variant = 'outlined' }) => {
     return (
-        <MuiPaper className={`${className} bg-white`} elevation={0} variant="outlined" tabIndex={tabIndex}>
+        <MuiPaper className={`${className} bg-white`} variant={variant} tabIndex={tabIndex}>
             {children}
         </MuiPaper>
     );

@@ -1,58 +1,39 @@
+import styled from '@emotion/styled';
 import React, { MouseEventHandler } from 'react';
-
-export enum HIGHLIGHT_TYPE {
-    NONE = 'none',
-    START = 'start',
-    END = 'end',
-    BETWEEN = 'between',
-}
+import tw from 'twin.macro';
+import { isWeekend } from 'utils/dateUtil';
 
 interface Props {
     className?: string;
-    year: number;
-    month: number;
-    day: number;
-    onClick?: (obj: { value: string; year: number; month: number; day: number }) => void;
-    highlight?: HIGHLIGHT_TYPE;
+    date: Date;
+    onClick?: (obj: { value: string }) => void;
 }
 
-// const getHighlightStyle = (highlight: string) => {
-//     let color = 'bg-theme-200';
+const StyledDate = styled.div`
+    ${tw`grid place-content-center cursor-pointer p-2`}
+    ${({ date }: { date: Date }) => (isWeekend(date) ? tw`text-slate-400` : tw`text-slate-900`)}
+`;
 
-//     switch (highlight) {
-//         case 'start':
-//             return 'rounded-l-full ' + color;
-//         case 'end':
-//             return 'rounded-r-full ' + color;
-//         case 'between':
-//             return  color;
-//     }
+/* const StyledDate = tw.div`grid place-content-center cursor-pointer p-3 ${(props) =>
+    isWeekend(props.date) ? '' : 'text-theme-800'}`; */
 
-//     return '';
-// };
+//color: ${({ date }: { date: Date }) => (isWeekend(date) ? 'gray' : 'black')}
 
-const Day: React.FC<Props> = ({ className, year, month, day, highlight, onClick }) => {
-    if (day === 0) return <div />;
-
-    const value = `${year}-${month + 1}-${day}`;
+const Day: React.FC<Props> = ({ className, date, onClick }) => {
+    const value = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
     const handleClick = () => {
         onClick?.({
             value,
-            year,
-            month,
-            day,
         });
     };
 
+    const day = date.getDay();
+
     // Note: Do not remove calender-day class.
     return (
-        <div
-            data-id={value}
-            className={`${className} calender-day grid place-content-center text-theme-800 cursor-pointer p-3`}
-            onClick={handleClick}
-        >
-            {day}
-        </div>
+        <StyledDate date={date} data-id={value} className={`${className} calender-day`} onClick={handleClick}>
+            {date.getDate()}
+        </StyledDate>
     );
 };
 

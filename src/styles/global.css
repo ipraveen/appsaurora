@@ -1,4 +1,4 @@
-@tailwind base;
+@tailwind base; 
 @tailwind components;
 @tailwind utilities;
 
@@ -26,3 +26,7 @@ label {
     font-weight: 500;
     line-height: 20px;
 }
+
+/* a{
+    text-decoration: none;
+} */

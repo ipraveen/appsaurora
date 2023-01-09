@@ -7,15 +7,16 @@ interface Props {
     onClick: (obj: { value: string; year: number; month: number; day: number }) => void;
     startDate: any;
     endDate: any;
+    className?: string;
 }
 
-const Year = ({ year, onClick, startDate, endDate }: Props) => {
+const Year = ({ year, onClick, startDate, endDate, className }: Props) => {
     console.log({ startDate, endDate });
     return (
-        <div>
-            <h1 className="text-4xl font-medium mt-6">{year}</h1>
+        <div className={className}>
+            <h1 className="text-4xl font-medium my-2">{year}</h1>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
                 {months.map(({ value, label }, index) => (
                     <Month
                         label={label}

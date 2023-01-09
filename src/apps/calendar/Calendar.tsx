@@ -1,4 +1,4 @@
-import CalenderHeader from './CalenderHeader';
+import CalendarHeader from './CalendarHeader';
 import React, { MouseEvent, useEffect, useState } from 'react';
 import Year from './Year';
 import { getCurrentYear, compare } from 'utils/dateUtil';
@@ -7,7 +7,7 @@ import { AppProps } from 'components/layout/app-layout/AppLayout';
 
 interface Props extends AppProps {}
 
-const Calender = (props: Props) => {
+const Calendar = (props: Props) => {
     const [startDate, setStartDate] = useState<string | null>(null);
     const [endDate, setEndDate] = useState<string | null>(null);
     useEffect(() => {}, []);
@@ -43,7 +43,7 @@ const Calender = (props: Props) => {
         if (startDate && endDate) {
             return props.app.notification.dispatch({
                 type: 'UPDATE_CHILDREN',
-                data: <CalenderHeader year={year} startDate={startDate} endDate={endDate} />,
+                data: <CalendarHeader year={year} startDate={startDate} endDate={endDate} />,
             });
         }
         props.app.notification.dispatch({
@@ -53,7 +53,6 @@ const Calender = (props: Props) => {
     }, [startDate, endDate]);
 
     const onClearClick = (event: MouseEvent<HTMLDivElement>) => {
-
         const element = event.target as Element;
 
         if (element.classList.contains('calender-day')) return;
@@ -62,22 +61,18 @@ const Calender = (props: Props) => {
     };
 
     return (
-        <div onClick={onClearClick}>
-            <Alert type="info">
-                <b>Info: </b>You can click on date to calculate Number of days, weekends, weekdays, etc, between the
-                selected days.
+        <div onClick={onClearClick} >
+            <Alert type="info" elevation={0} title="How to use this app?">
+                <p className="text-base">
+                    Click on dates to select a data range, we will calculate the total number of days, weekdays, and
+                    weekends, for you.
+                </p>
             </Alert>
-            {/* <h1 className="text-4xl font-medium mt-6">{year}</h1> */}
-            <div className="my-12">
-                <Year year={year} onClick={onClick} startDate={startDate} endDate={endDate} />
-            </div>
-
+            <Year className="my-6" year={year} onClick={onClick} startDate={startDate} endDate={endDate} />
             {/** Next Year */}
-            <div className="my-12">
-                <Year year={year + 1} onClick={onClick} startDate={startDate} endDate={endDate} />
-            </div>
+            <Year className="my-6" year={year + 1} onClick={onClick} startDate={startDate} endDate={endDate} />
         </div>
     );
 };
 
-export default Calender;
+export default Calendar;
