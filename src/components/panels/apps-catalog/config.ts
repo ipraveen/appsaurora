@@ -1,6 +1,4 @@
-// import { faCalendar, faPerson, faHourglass, faCropSimple, faStopwatch20, faFileWord } from '@fortawesome/free-solid-svg-icons';
-
-import { CalendarMonthRounded, EmojiPeople, Spellcheck } from '@mui/icons-material';
+import { CalendarMonthRounded, EmojiPeople, Wysiwyg } from '@mui/icons-material';
 
 const apps = [
     {
@@ -49,7 +47,7 @@ const apps = [
             {
                 id: 'wordCards',
                 label: 'Word Cards',
-                Icon: Spellcheck,
+                Icon: Wysiwyg,
             },
         ],
     },

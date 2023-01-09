@@ -28,8 +28,8 @@ const AgeDisplay: React.FC<Props> = ({ ageYear, ageMonth }) => {
     if (!ageCalculated) {
         return (
             <StyledContainer className="p-6">
-                <h1 className="text-cyan-800 mb-6">Select your date of birth and we will tell you you're age</h1>
-                <SettingsAccessibility className="text-cyan-500" sx={{ fontSize: 150 }} />
+                <h1 className="text-theme-600 mb-6">Select your date of birth and we will tell you you're age</h1>
+                <SettingsAccessibility className="text-theme-500" sx={{ fontSize: 150 }} />
             </StyledContainer>
         );
     }

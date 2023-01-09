@@ -6,12 +6,12 @@ interface Props {
     type?: 'block' | 'inline-block' | 'inline';
 }
 export default function AppLogo({ Icon, label, type }: Props) {
-    if(!Icon) return;
+    if (!Icon) return;
 
     if (type === 'block') {
         return (
-            <div className="flex flex-col justify-center items-center gap-3 ">
-                <div className="ring-offset-1 ring-2 ring-theme-200 rounded-full w-20 h-20 grid place-content-center bg-theme-200">
+            <div className="flex flex-col justify-center items-center gap-3 border border-white hover:border-theme-400 px-6 py-4 rounded-xl">
+                <div className="ring-offset-1 ring-2 ring-theme-200 rounded-full w-16 h-16 grid place-content-center bg-theme-200">
                     <Icon className="text-theme-500 w-12 h-12" sx={{ fontSize: 40 }} />
                 </div>
 
