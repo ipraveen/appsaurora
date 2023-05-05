@@ -40,9 +40,9 @@ export default function AppLogo({ Icon, label, type, color }: Props) {
     if (type === 'inline-block') {
         return (
             <div className="flex justify-start items-center gap-2">
-                <Icon className="text-white" sx={{ fontSize: 36 }} />
+                <Icon className="text-theme-700" sx={{ fontSize: 36 }} />
                 <h1 className="text-3xl">
-                    <small className=" text-white tracking-wide font-light">{label}</small>
+                    <small className=" text-theme-600 tracking-wide font-light">{label}</small>
                 </h1>
             </div>
         );

@@ -13,7 +13,7 @@ interface Props {
 }
 
 const StyledAlert = styled(AlertMui)`
-    ${tw`border border-l-2 border-blue-500 `}/* display: flex;
+    ${tw`border border-l-2 border-blue-100 `}/* display: flex;
     //     border-left: 0.4rem solid cadetblue;
     justify-content: center; */
 `;
