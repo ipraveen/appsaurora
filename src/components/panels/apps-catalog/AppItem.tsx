@@ -3,15 +3,19 @@ import { Link } from 'gatsby';
 import { AppLogo } from 'components/panels';
 
 interface Props {
-    id: string;
-    label: string;
-    icon: any;
+    item: {
+        id: string;
+        label: string;
+        Icon: any;
+        color: string;
+    };
 }
 
-const AppItem: React.FC<Props> = ({ id, label, Icon }) => {
+const AppItem: React.FC<Props> = ({ item }) => {
+    const { id, label, Icon, color } = item;
     return (
         <Link className="gap-3 cursor-pointer " key={id} to={`/${id}`} state={{ appId: id, Icon, label }}>
-            <AppLogo type="block" Icon={Icon} label={label} />
+            <AppLogo type="block" color={color} Icon={Icon} label={label} />
         </Link>
     );
 };

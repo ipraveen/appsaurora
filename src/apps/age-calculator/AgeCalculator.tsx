@@ -7,21 +7,23 @@ interface Props {}
 
 const AgeCalculator: React.FC<Props> = (props) => {
     const [age, setAge] = useState<Date | null>(null);
-    const [ageYear, setAgeYear] = useState<number | null>(null);
-    const [ageMonth, setAgeMonth] = useState<number | null>(null);
+    const [ageYear, setAgeYear] = useState<number>();
+    const [ageMonth, setAgeMonth] = useState<number>();
+    const [clickedOnce, setClickedOnce] = useState(false);
 
     const handleAgeCalculation = () => {
         if (age) {
             const months = diff(new Date(), age);
-
+            setClickedOnce(true);
             setAgeYear(Number(Math.floor(months / 12)));
             setAgeMonth(Number(Math.floor(months % 12)));
         }
     };
 
     const handleClear = () => {
-        setAgeYear(null);
-        setAgeMonth(null);
+        setClickedOnce(false)
+        setAgeYear(undefined);
+        setAgeMonth(undefined);
         setAge(null);
     };
 
@@ -41,7 +43,7 @@ const AgeCalculator: React.FC<Props> = (props) => {
                     </section>
                 </section>
                 <section>
-                    <AgeDisplay ageMonth={ageMonth} ageYear={ageYear} />
+                    <AgeDisplay ageCalculated={clickedOnce} ageMonth={ageMonth} ageYear={ageYear} />
                 </section>
             </section>
         </Paper>

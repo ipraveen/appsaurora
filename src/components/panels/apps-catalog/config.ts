@@ -9,6 +9,7 @@ const apps = [
                 id: 'calendar',
                 label: 'Calendar',
                 Icon: CalendarMonthRounded,
+                color: '#3B78C6'
             },
         ],
     },
@@ -20,6 +21,7 @@ const apps = [
                 id: 'age',
                 label: 'Age Calculator',
                 Icon: EmojiPeople,
+                color: '#788d6b'
             },
         ],
     },
@@ -48,6 +50,7 @@ const apps = [
                 id: 'wordCards',
                 label: 'Word Cards',
                 Icon: Wysiwyg,
+                color: '#b27001'
             },
         ],
     },

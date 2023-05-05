@@ -39,7 +39,7 @@ const getTodayHighlight = (date: Date) => {
     const today = new Date();
 
     if (dateUtil.compare(date, today) === 0) {
-        return `bg-red-200 rounded-full ring-2 ring-red-300 ring-offset-2`;
+        return `bg-red-600 text-white rounded-full h-8 w-8 `;
     }
     return '';
 };

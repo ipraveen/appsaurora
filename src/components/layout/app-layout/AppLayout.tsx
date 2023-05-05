@@ -73,7 +73,7 @@ export default function AppLayout({ children, state, appName }: Props) {
         <StyledContainer>
             <Header Icon={app?.Icon} label={app?.label} />
             <PageNotification state={notificationState} />
-            <div className="container mx-auto my-4 ">{childrenWithProps}</div>
+            <div className="container mx-auto my-4">{childrenWithProps}</div>
             <Footer />
         </StyledContainer>
     );

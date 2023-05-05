@@ -4,17 +4,16 @@ import { SettingsAccessibility, EmojiPeople } from '@mui/icons-material';
 import tw from 'twin.macro';
 
 interface Props {
-    ageYear: number | null;
-    ageMonth: number | null;
+    ageYear: number | undefined;
+    ageMonth: number | undefined;
+    ageCalculated: boolean;
 }
 
 const StyledContainer = tw(Paper)`flex justify-center flex-col items-center border `;
 
-const AgeDisplay: React.FC<Props> = ({ ageYear, ageMonth }) => {
-    const ageCalculated = ageYear && ageMonth;
+const AgeDisplay: React.FC<Props> = ({ ageCalculated, ageYear = 0, ageMonth  = 0}) => {
 
     const getMessage = () => {
-        if (!ageYear || !ageMonth) return;
 
         if (ageYear > 0 && ageMonth > 0) {
             return `You're ${ageYear} Years and ${ageMonth} Months old!`;

@@ -4,15 +4,32 @@ interface Props {
     Icon?: any;
     label?: string;
     type?: 'block' | 'inline-block' | 'inline';
+    color: string;
 }
-export default function AppLogo({ Icon, label, type }: Props) {
+export default function AppLogo({ Icon, label, type, color }: Props) {
     if (!Icon) return;
 
     if (type === 'block') {
+        const backgroundColor = `${color}22`;
+        const outlineColor = `${color}33`;
         return (
             <div className="flex flex-col justify-center items-center gap-3 border border-white hover:border-theme-400 px-6 py-4 rounded-xl">
-                <div className="ring-offset-1 ring-2 ring-theme-200 rounded-full w-16 h-16 grid place-content-center bg-theme-200">
-                    <Icon className="text-theme-500 w-12 h-12" sx={{ fontSize: 40 }} />
+                <div
+                    style={{
+                        backgroundColor,
+                        outline: `2px solid ${outlineColor}`,
+                        outlineOffset: '2px',
+                    }}
+                    className="rounded-full w-20 h-20 grid place-content-center "
+                >
+                    <Icon
+                        style={{
+                            color,
+                        }}
+                        color={color}
+                        className=" w-12 h-12"
+                        sx={{ fontSize: 40 }}
+                    />
                 </div>
 
                 <label className="text-theme-700 font-medium">{label}</label>
