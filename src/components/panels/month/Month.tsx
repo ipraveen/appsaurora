@@ -4,6 +4,7 @@ import { addDays } from '../../../apps/calendar/helper';
 import WeekHeader from './WeekHeader';
 import { Paper } from 'components/parts';
 import * as dateUtil from 'utils/dateUtil';
+import useTodayDate from './useTodayDate';
 
 interface Props {
     label: string;
@@ -17,7 +18,7 @@ interface Props {
 
 const FIRST_DAY = 1;
 
-const getSelectionHighlight = (date: Date, startDate?: string, endDate?: string) => {
+const getSelectionHighlight = (today: Date, date: Date, startDate?: string, endDate?: string) => {
     const baseClass = 'bg-theme-200';
 
     if (startDate && dateUtil.compare(date, startDate) === 0) {
@@ -32,12 +33,10 @@ const getSelectionHighlight = (date: Date, startDate?: string, endDate?: string)
     ) {
         return baseClass;
     }
-    return getTodayHighlight(date);
+    return getTodayHighlight(today, date);
 };
 
-const getTodayHighlight = (date: Date) => {
-    const today = new Date();
-
+const getTodayHighlight = (today: Date, date: Date) => {
     if (dateUtil.compare(date, today) === 0) {
         return `bg-red-600 text-white rounded-full h-8 w-8 `;
     }
@@ -45,8 +44,11 @@ const getTodayHighlight = (date: Date) => {
 };
 
 const Month = ({ label, year, month, startDate, endDate, onClick, tabIndex }: Props) => {
+    const [today] = useTodayDate();
     const date = new Date(year, month, FIRST_DAY);
     const firstDayOfNextMonth = new Date(year, month + 1, FIRST_DAY);
+
+    if(today == null) return null;
 
     const day = date.getDay();
     const dayNaturalIndex = day === 0 ? 7 : day;
@@ -60,19 +62,12 @@ const Month = ({ label, year, month, startDate, endDate, onClick, tabIndex }: Pr
         let className = '';
 
         if (startDate || endDate) {
-            className = `${getSelectionHighlight(date, startDate, endDate)}`;
+            className = `${getSelectionHighlight(today, date, startDate, endDate)}`;
         } else {
-            className = getTodayHighlight(date);
+            className = getTodayHighlight(today, date);
         }
 
-        days.push(
-            <Day
-                onClick={onClick}
-                className={className}
-                key={date.getTime()}
-                date={new Date(date)}
-            />
-        );
+        days.push(<Day onClick={onClick} className={className} key={date.getTime()} date={new Date(date)} />);
         addDays(date, 1);
     }
     return (
