@@ -42,7 +42,7 @@ export default function AppLogo({ Icon, label, type, color }: Props) {
             <div className="flex justify-start items-center gap-2">
                 <Icon className="text-theme-700" sx={{ fontSize: 36 }} />
                 <h1 className="text-3xl">
-                    <small className=" text-theme-600 tracking-wide font-light">{label}</small>
+                    <small className=" text-theme-700 tracking-wide font-light lowercase">{label}</small>
                 </h1>
             </div>
         );

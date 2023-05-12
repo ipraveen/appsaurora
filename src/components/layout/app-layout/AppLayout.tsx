@@ -69,6 +69,7 @@ export default function AppLayout({ children, state, appName }: Props) {
 
     const app = getApp(appName);
 
+
     return (
         <StyledContainer>
             <Header Icon={app?.Icon} label={app?.label} />

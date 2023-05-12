@@ -2,6 +2,7 @@ import { Button, DateField, Paper } from 'components/parts';
 import React, { useState } from 'react';
 import { diff } from 'utils/dateUtil';
 import AgeDisplay from './AgeDisplay';
+import { usePreferenceStorage } from 'storage/hooks/usePreferenceStorage';
 
 interface Props {}
 
@@ -10,6 +11,7 @@ const AgeCalculator: React.FC<Props> = (props) => {
     const [ageYear, setAgeYear] = useState<number>();
     const [ageMonth, setAgeMonth] = useState<number>();
     const [clickedOnce, setClickedOnce] = useState(false);
+    const [ageHistory, setHistory] = usePreferenceStorage<Date[]>('AGE_CALCULATOR_HISTORY');
 
     const handleAgeCalculation = () => {
         if (age) {
@@ -17,11 +19,16 @@ const AgeCalculator: React.FC<Props> = (props) => {
             setClickedOnce(true);
             setAgeYear(Number(Math.floor(months / 12)));
             setAgeMonth(Number(Math.floor(months % 12)));
+            if (Array.isArray(ageHistory)) {
+                setHistory([age, ...ageHistory]);
+            } else {
+                setHistory([age]);
+            }
         }
     };
 
     const handleClear = () => {
-        setClickedOnce(false)
+        setClickedOnce(false);
         setAgeYear(undefined);
         setAgeMonth(undefined);
         setAge(null);
@@ -46,6 +53,12 @@ const AgeCalculator: React.FC<Props> = (props) => {
                     <AgeDisplay ageCalculated={clickedOnce} ageMonth={ageMonth} ageYear={ageYear} />
                 </section>
             </section>
+
+            <h1>History</h1>
+
+            {ageHistory?.map((history) => (
+                <div>{history.toString()}</div>
+            ))}
         </Paper>
     );
 };

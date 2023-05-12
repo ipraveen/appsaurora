@@ -12,6 +12,8 @@ export const subtractDays = (date: Date, value: number) => addDays(date, -1 * va
 
 export const isWeekend = (date: Date) => date.getDay() === 0 || date.getDay() === 6;
 
+export const getISODateString = (date: Date) => date.toISOString().split('T')[0];
+
 type DateType = string | number | Date;
 export const compare = (d1: DateType, d2: DateType) => {
     const date1 = new Date(d1);

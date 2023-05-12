@@ -24,6 +24,7 @@
         "gatsby-plugin-manifest": "5.3.1",
         "gatsby-plugin-material-ui": "^4.1.0",
         "gatsby-plugin-sitemap": "^6.3.1",
+        "idb": "^7.1.1",
         "install": "^0.13.0",
         "moment": "^2.29.4",
         "npm": "^9.2.0",
