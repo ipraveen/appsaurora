@@ -1,7 +1,7 @@
 import { DB_NAME, PREFERENCE_STORE } from '../schemas/preference-schema';
 import { TXN_WRITE } from '../db';
 import { Dispatch, SetStateAction, useCallback, useEffect, useState } from 'react';
-import { useDB } from './useDB';
+import { useDB } from './useDb';
 import * as idb from 'idb';
 
 export function usePreferenceStorage<T>(key: string): [T | undefined, (value: T) => Promise<void>] {
