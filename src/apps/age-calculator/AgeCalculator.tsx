@@ -1,6 +1,6 @@
 import { Button, DateField, Paper } from 'components/parts';
 import React, { useState } from 'react';
-import { diff } from 'utils/dateUtil';
+import { dateDiff } from 'utils/dateUtil';
 import AgeDisplay from './AgeDisplay';
 import { usePreferenceStorage } from 'storage/hooks/usePreferenceStorage';
 
@@ -15,7 +15,7 @@ const AgeCalculator: React.FC<Props> = (props) => {
 
     const handleAgeCalculation = () => {
         if (age) {
-            const months = diff(new Date(), age);
+            const months = dateDiff(new Date(), age, "month");
             setClickedOnce(true);
             setAgeYear(Number(Math.floor(months / 12)));
             setAgeMonth(Number(Math.floor(months % 12)));

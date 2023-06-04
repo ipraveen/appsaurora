@@ -1,4 +1,5 @@
-import moment from 'moment';
+import differenceInMonths from 'date-fns/differenceInMonths';
+import differenceInDays from 'date-fns/differenceInDays';
 
 export const getCurrentYear = () => new Date().getFullYear();
 
@@ -38,9 +39,11 @@ export const getLastDateOfMonth = (year: number, month: number) => {
 
 export const getFirstDateOfMonth = (year: number, month: number) => new Date(year, month, 1);
 
-export const diff = (date1: Date, date2: Date) => {
-    const m1 = moment(date1);
-    const m2 = moment(date2);
+type diffTypes = 'month' | 'days' | 'year';
+export const dateDiff = (date1: Date, date2: Date, type: diffTypes = 'days') => {
+    if (type === 'month') {
+        return differenceInMonths(date1, date2);
+    }
 
-    return m1.diff(m2, 'months', true);
+    return differenceInDays(date1, date2);
 };
