@@ -1,12 +1,12 @@
 import React, { useReducer } from 'react';
 import { Header, Footer, PageNotification } from 'components/layout';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { getApp } from 'components/panels/apps-catalog/config';
+import { getApp } from 'apps/apps-catalog/config';
 import styled from '@emotion/styled';
 
 interface Props {
     children: React.ReactNode;
-    appName: string;
+    appName?: string;
     state?: {
         appId: string;
         icon: IconDefinition;

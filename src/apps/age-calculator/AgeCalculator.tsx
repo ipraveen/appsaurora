@@ -1,4 +1,4 @@
-import { Button, DateField, Paper } from 'components/parts';
+import { Button, DateField, Paper } from 'components/core';
 import React, { useState } from 'react';
 import { dateDiff } from 'utils/dateUtil';
 import AgeDisplay from './AgeDisplay';

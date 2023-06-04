@@ -1,4 +1,4 @@
-import AutoCompleteField, { AutoCompleteOption } from 'components/parts/AutoComplete';
+import AutoCompleteField, { AutoCompleteOption } from 'components/core/AutoComplete';
 import React, { useState } from 'react';
 
 interface Props {

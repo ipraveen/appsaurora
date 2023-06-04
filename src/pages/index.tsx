@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AppsCatalog } from 'components/panels';
+import AppsCatalog from 'apps/apps-catalog/AppsCatalog';
 import { AppLayout } from 'components/layout';
 import SEO from 'components/seo/SEO';
 

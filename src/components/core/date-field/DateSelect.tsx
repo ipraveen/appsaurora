@@ -1,7 +1,7 @@
-import { TextField } from 'components/parts';
-import AutoComplete, { AutoCompleteOption } from 'components/parts/AutoComplete';
+import { TextField } from 'components/core';
+import AutoComplete, { AutoCompleteOption } from 'components/core/AutoComplete';
 import React from 'react';
-import { getLastDateOfMonth, getFirstDateOfMonth, addDays } from 'utils/dateUtil';
+import { lastDayOfMonth, getFirstDateOfMonth, addDays } from 'utils/dateUtil';
 
 interface Props {
     year: AutoCompleteOption | null;
@@ -17,7 +17,7 @@ const DateSelect: React.FC<Props> = ({ className, year, month, date, onChange, t
         return <TextField className="w-16" disabled label="Date" />;
     }
     const firstDate = getFirstDateOfMonth(Number(year.value), Number(month.value));
-    const lastDate = getLastDateOfMonth(Number(year.value), Number(month.value));
+    const lastDate = lastDayOfMonth(new Date(Number(year.value), Number(month.value) + 1, 1));
     const generateOptions = () => {
         const options: AutoCompleteOption[] = [];
         const date = new Date(firstDate);

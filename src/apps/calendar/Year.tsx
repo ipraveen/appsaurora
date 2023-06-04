@@ -1,5 +1,5 @@
 import React from 'react';
-import { Month } from 'components/panels';
+import Month from 'components/month/Month';
 import { months } from './config';
 
 interface Props {

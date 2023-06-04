@@ -1,5 +1,5 @@
 import React from 'react';
-import { formateDate } from './helper';
+
 
 interface Props {
     value: number;

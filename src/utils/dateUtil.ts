@@ -1,5 +1,11 @@
 import differenceInMonths from 'date-fns/differenceInMonths';
 import differenceInDays from 'date-fns/differenceInDays';
+import compareAsc from 'date-fns/compareAsc';
+
+// Direct Export
+import lastDayOfMonth from 'date-fns/lastDayOfMonth';
+
+export { lastDayOfMonth };
 
 export const getCurrentYear = () => new Date().getFullYear();
 
@@ -20,21 +26,7 @@ export const compare = (d1: DateType, d2: DateType) => {
     const date1 = new Date(d1);
     const date2 = new Date(d2);
 
-    // Check if date are equal, ignore time.
-    if (isYearSame(date1, date2) && isMonthSame(date1, date2) && isDateSame(date1, date2)) {
-        return 0;
-    }
-
-    if (date1 > date2) {
-        return 1;
-    }
-    return -1;
-};
-
-export const getLastDateOfMonth = (year: number, month: number) => {
-    const date = new Date(year, month + 1, 1);
-    subtractDays(date, 1);
-    return date;
+    return compareAsc(date1, date2);
 };
 
 export const getFirstDateOfMonth = (year: number, month: number) => new Date(year, month, 1);
@@ -46,4 +38,14 @@ export const dateDiff = (date1: Date, date2: Date, type: diffTypes = 'days') => 
     }
 
     return differenceInDays(date1, date2);
+};
+
+export const formateDate = (date: Date | string | null) => {
+    if (date === null) return '';
+
+    if (typeof date === 'string') {
+        date = new Date(date);
+    }
+
+    return new Intl.DateTimeFormat().format(date);
 };

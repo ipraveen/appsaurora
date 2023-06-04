@@ -1,4 +1,4 @@
-import { AutoCompleteOption } from 'components/parts/AutoComplete';
+import { AutoCompleteOption } from 'components/core/AutoComplete';
 import React, { useEffect, useState } from 'react';
 import MonthField from './Month';
 import YearField from './YearField';

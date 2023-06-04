@@ -1,7 +1,7 @@
 import React from 'react';
 import { getApps } from './config';
 import AppsSection from './AppsSection';
-import { Paper } from 'components/parts';
+import { Paper } from 'components/core';
 
 interface Props {}
 

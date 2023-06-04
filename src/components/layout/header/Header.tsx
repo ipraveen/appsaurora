@@ -1,5 +1,6 @@
 import React from 'react';
-import { Logo, AppLogo } from 'components/panels';
+import Logo from 'components/logo/Logo';
+import AppLogo from 'components/app-logo/AppLogo';
 import Container from '../container/Container';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 

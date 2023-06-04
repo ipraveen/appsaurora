@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Calendar } from 'apps';
+import Calendar  from 'apps/calendar';
 import { AppLayout } from 'components/layout';
 import SEO from 'components/seo/SEO';
 import { HeadProps } from 'gatsby';

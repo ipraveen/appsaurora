@@ -2,7 +2,7 @@ import CalendarHeader from './CalendarHeader';
 import React, { MouseEvent, useEffect, useState } from 'react';
 import Year from './Year';
 import { getCurrentYear, compare } from 'utils/dateUtil';
-import { Alert } from 'components/parts';
+import { Alert } from 'components/core';
 import { AppProps } from 'components/layout/app-layout/AppLayout';
 
 interface Props extends AppProps {}

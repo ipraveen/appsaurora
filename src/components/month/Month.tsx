@@ -1,8 +1,8 @@
 import React from 'react';
 import Day from './Day';
-import { addDays } from '../../../apps/calendar/helper';
+import { addDays } from 'utils/dateUtil';
 import WeekHeader from './WeekHeader';
-import { Paper } from 'components/parts';
+import { Paper } from 'components/core';
 import * as dateUtil from 'utils/dateUtil';
 import useTodayDate from './useTodayDate';
 
