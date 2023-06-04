@@ -24,9 +24,8 @@ const WordCard = ({ word, onNext, onPrev }: Props) => {
         onNext();
     };
 
-    const handlePrev = () => {
-        setFlipped(false);
-        onNext();
+    const handleShow = () => {
+        setFlipped(true);
     };
 
     const cardCommonClassName = 'grid p-6 w-full h-full place-content-center';
@@ -64,10 +63,8 @@ const WordCard = ({ word, onNext, onPrev }: Props) => {
                 }
             />
             <div className="flex justify-center gap-6 items-center p-6 h-24">
-
-                <Button onClick={handleNext}>
-                    Next
-                </Button>
+                <Button disabled={flipped} color='success' onClick={handleShow}>Show</Button>
+                <Button onClick={handleNext}>Next</Button>
             </div>
         </div>
     );

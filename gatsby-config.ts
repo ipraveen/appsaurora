@@ -1,9 +1,7 @@
-// // import type { GatsbyConfig } from 'gatsby';
-// import path from 'path';
+import type { GatsbyConfig } from 'gatsby';
+import path from 'path';
 
-const path = require('path');
-
-const config = {
+const gatsbyConfig: GatsbyConfig = {
     siteMetadata: {
         title: `AppsAurora`,
         siteUrl: `https://appsaurora.com/`,
@@ -13,16 +11,29 @@ const config = {
     },
     graphqlTypegen: true,
     plugins: [
-        'gatsby-plugin-image',
-        'gatsby-plugin-material-ui',
-        'gatsby-plugin-postcss',
-        'gatsby-plugin-emotion',
+        `gatsby-plugin-image`,
         {
-            resolve: 'gatsby-plugin-google-analytics',
+            resolve: `gatsby-plugin-sharp`,
             options: {
-                trackingId: 'UA-54655188-1',
+                defaults: {
+                    formats: [`auto`, `webp`],
+                    placeholder: `dominantColor`,
+                    quality: 50,
+                    breakpoints: [750, 1080, 1366, 1920],
+                    backgroundColor: `transparent`,
+                    blurredOptions: {},
+                    jpgOptions: {},
+                    pngOptions: {},
+                    webpOptions: {},
+                    avifOptions: {},
+                },
             },
         },
+        `gatsby-transformer-sharp`,
+        'gatsby-plugin-material-ui',
+        'gatsby-plugin-sitemap',
+        'gatsby-plugin-postcss',
+        'gatsby-plugin-emotion',
         'gatsby-plugin-sitemap',
         {
             resolve: 'gatsby-plugin-manifest',
@@ -42,7 +53,5 @@ const config = {
         },
     ],
 };
+export default gatsbyConfig;
 
-// export default config;
-
-module.exports = config;

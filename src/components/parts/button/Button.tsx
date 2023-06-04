@@ -7,13 +7,21 @@ interface Props {
     className?: string;
     variant?: 'text' | 'contained' | 'outlined';
     disabled?: boolean;
+    color?: 'success' | 'error';
 }
 
 const Button: React.FC<Props> = (props) => {
-    const { onClick, children, variant = 'contained', className, disabled } = props;
+    const { onClick, children, color, variant = 'contained', className, disabled } = props;
 
     return (
-        <MUIButton variant={variant} className={className} disableElevation onClick={onClick} disabled={disabled}>
+        <MUIButton
+            variant={variant}
+            color={color}
+            className={className}
+            disableElevation
+            onClick={onClick}
+            disabled={disabled}
+        >
             {children}
         </MUIButton>
     );

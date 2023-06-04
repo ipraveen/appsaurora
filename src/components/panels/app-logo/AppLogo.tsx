@@ -4,10 +4,10 @@ interface Props {
     Icon?: any;
     label?: string;
     type?: 'block' | 'inline-block' | 'inline';
-    color: string;
+    color?: string;
 }
 export default function AppLogo({ Icon, label, type, color }: Props) {
-    if (!Icon) return;
+    if (!Icon) return null;
 
     if (type === 'block') {
         const backgroundColor = `${color}22`;

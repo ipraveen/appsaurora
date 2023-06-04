@@ -54,11 +54,11 @@ const AgeCalculator: React.FC<Props> = (props) => {
                 </section>
             </section>
 
-            <h1>History</h1>
+            {/* <h1>History</h1> */}
 
-            {ageHistory?.map((history) => (
+            {/* {ageHistory?.map((history) => (
                 <div>{history.toString()}</div>
-            ))}
+            ))} */}
         </Paper>
     );
 };
