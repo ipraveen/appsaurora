@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import { isWeekend } from 'utils/dateUtil';
+import { isWeekend } from '@appsaurora/utils';
 
 interface Props {
     className?: string;

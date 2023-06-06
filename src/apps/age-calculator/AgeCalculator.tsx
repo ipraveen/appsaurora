@@ -1,6 +1,6 @@
 import { Button, DateField, Paper } from 'components/core';
 import React, { useState } from 'react';
-import { dateDiff } from 'utils/dateUtil';
+import { dateDiff } from '@appsaurora/utils';
 import AgeDisplay from './AgeDisplay';
 import { usePreferenceStorage } from 'storage/hooks/usePreferenceStorage';
 

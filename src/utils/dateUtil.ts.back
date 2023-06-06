@@ -9,9 +9,9 @@ export { lastDayOfMonth };
 
 export const getCurrentYear = () => new Date().getFullYear();
 
-const isYearSame = (d1: Date, d2: Date) => d1.getFullYear() === d2.getFullYear();
-const isMonthSame = (d1: Date, d2: Date) => d1.getMonth() === d2.getMonth();
-const isDateSame = (d1: Date, d2: Date) => d1.getDate() === d2.getDate();
+export const isYearSame = (d1: Date, d2: Date) => d1.getFullYear() === d2.getFullYear();
+export const isMonthSame = (d1: Date, d2: Date) => d1.getMonth() === d2.getMonth();
+export const isDateSame = (d1: Date, d2: Date) => d1.getDate() === d2.getDate();
 
 export const addDays = (date: Date, value: number) => date.setDate(date.getDate() + value);
 

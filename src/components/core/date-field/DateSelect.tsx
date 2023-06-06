@@ -1,7 +1,7 @@
 import { TextField } from 'components/core';
 import AutoComplete, { AutoCompleteOption } from 'components/core/AutoComplete';
 import React from 'react';
-import { lastDayOfMonth, getFirstDateOfMonth, addDays } from 'utils/dateUtil';
+import { lastDayOfMonth, getFirstDateOfMonth, addDays } from '@appsaurora/utils';
 
 interface Props {
     year: AutoCompleteOption | null;

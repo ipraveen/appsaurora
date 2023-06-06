@@ -1,9 +1,10 @@
 import CalendarHeader from './CalendarHeader';
 import React, { MouseEvent, useEffect, useState } from 'react';
 import Year from './Year';
-import { getCurrentYear, compare } from 'utils/dateUtil';
+import { getCurrentYear, compare } from '@appsaurora/utils';
 import { Alert } from 'components/core';
 import { AppProps } from 'components/layout/app-layout/AppLayout';
+import InfoPanel from 'apps/info-panel/InfoPanel';
 
 interface Props extends AppProps {}
 
@@ -71,6 +72,8 @@ const Calendar = (props: Props) => {
             <Year className="my-6" year={year} onClick={onClick} startDate={startDate} endDate={endDate} />
             {/** Next Year */}
             <Year className="my-6" year={year + 1} onClick={onClick} startDate={startDate} endDate={endDate} />
+
+            <InfoPanel />
         </div>
     );
 };

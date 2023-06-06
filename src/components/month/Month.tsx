@@ -1,9 +1,9 @@
 import React from 'react';
 import Day from './Day';
-import { addDays } from 'utils/dateUtil';
+import { addDays } from '@appsaurora/utils';
 import WeekHeader from './WeekHeader';
 import { Paper } from 'components/core';
-import * as dateUtil from 'utils/dateUtil';
+import * as dateUtil from '@appsaurora/utils';
 import useTodayDate from './useTodayDate';
 
 interface Props {
@@ -37,6 +37,7 @@ const getSelectionHighlight = (today: Date, date: Date, startDate?: string, endD
 };
 
 const getTodayHighlight = (today: Date, date: Date) => {
+
     if (dateUtil.compare(date, today) === 0) {
         return `bg-red-600 text-white rounded-full h-8 w-8 `;
     }

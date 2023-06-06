@@ -1,4 +1,4 @@
-import { isWeekend, addDays } from 'utils/dateUtil';
+import { isWeekend, addDays } from '@appsaurora/utils';
 
 export const getDateRangeDetails = (startDate: string, endDate: string) => {
     const sDate = new Date(startDate);
