@@ -11,7 +11,7 @@ interface StyleProps {
 }
 
 const NotificationContainer = styled.div<StyleProps>`
-    transition: 0.6s ease-in-out;
+    transition: 1s linear;
     transform: ${(props) => (props.show ? 'translateY(0)' : 'translateY(-100%)')};
 `;
 
@@ -20,7 +20,7 @@ const PageNotification: React.FC<Props> = (props) => {
 
     return (
         <NotificationContainer
-            className="bg-white p-2 border border-slate-100 fixed top-16 z-20 w-full"
+            className="bg-slate-100 p-2 border border-slate-100 fixed top-0 z-50 w-full"
             show={Boolean(state?.children)}
         >
             <Container>{state.children}</Container>

@@ -16,10 +16,9 @@ const Day: React.FC<Props> = ({ className, date, onClick }) => {
         });
     };
 
-
     // Note: Do not remove calender-day class.
     return (
-        <div
+        <button
             className={`calender-day ${className} grid place-content-center cursor-pointer p-2 ${
                 isWeekend(date) ? 'text-slate-400' : `text-slate-900`
             }`}
@@ -27,7 +26,7 @@ const Day: React.FC<Props> = ({ className, date, onClick }) => {
             onClick={handleClick}
         >
             {date.getDate()}
-        </div>
+        </button>
     );
 };
 

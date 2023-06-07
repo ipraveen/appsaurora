@@ -1,20 +1,32 @@
+import styled from '@emotion/styled';
 import React from 'react';
-
 
 interface Props {
     value: number;
     label: string;
-    theme?: string;
+    color?: string;
 }
 
-const HeaderInfo: React.FC<Props> = ({ value, label, theme = 'slate' }) => {
+const Container = styled.div`
+    .bubble {
+        background-color: ${(props) => props.color}33;
+        color: ${(props) => props.color};
+    }
+
+    .label {
+        color: ${(props) => props.color};
+
+    }
+`;
+
+const HeaderInfo: React.FC<Props> = ({ value, label, color }) => {
     return (
-        <div className="flex flex-col justify-center items-center gap-2">
-            <div className={`grid place-content-center rounded-full text-white  w-10 h-10 bg-slate-400`}>
+        <Container color={color} className="flex flex-col justify-center items-center gap-2">
+            <div className={`bubble grid place-content-center rounded-full text-white font-semibold  w-10 h-10 bg-slate-400`}>
                 {value}
             </div>
-            <span className="text-xs uppercase text-theme-800">{label}</span>
-        </div>
+            <span className="label text-xs uppercase text-theme-800 font-semibold">{label}</span>
+        </Container>
     );
 };
 

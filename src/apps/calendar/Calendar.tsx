@@ -72,8 +72,6 @@ const Calendar = (props: Props) => {
             <Year className="my-6" year={year} onClick={onClick} startDate={startDate} endDate={endDate} />
             {/** Next Year */}
             <Year className="my-6" year={year + 1} onClick={onClick} startDate={startDate} endDate={endDate} />
-
-            <InfoPanel />
         </div>
     );
 };

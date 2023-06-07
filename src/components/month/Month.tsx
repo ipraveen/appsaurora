@@ -1,10 +1,10 @@
 import React from 'react';
 import Day from './Day';
-import { addDays } from '@appsaurora/utils';
+import { addDays, compare } from '@appsaurora/utils';
 import WeekHeader from './WeekHeader';
 import { Paper } from 'components/core';
-import * as dateUtil from '@appsaurora/utils';
 import useTodayDate from './useTodayDate';
+import isSameDay from 'date-fns/isSameDay';
 
 interface Props {
     label: string;
@@ -21,24 +21,20 @@ const FIRST_DAY = 1;
 const getSelectionHighlight = (today: Date, date: Date, startDate?: string, endDate?: string) => {
     const baseClass = 'bg-theme-200';
 
-    if (startDate && dateUtil.compare(date, startDate) === 0) {
+    if (startDate && compare(date, startDate) === 0) {
         return `${baseClass} rounded-l-full`;
-    } else if (endDate && dateUtil.compare(date, endDate) === 0) {
+    } else if (endDate && compare(date, endDate) === 0) {
         return `${baseClass} rounded-r-full`;
-    } else if (
-        startDate &&
-        endDate &&
-        dateUtil.compare(date, startDate) === 1 &&
-        dateUtil.compare(date, new Date(endDate)) === -1
-    ) {
+    } else if (startDate && endDate && compare(date, startDate) === 1 && compare(date, new Date(endDate)) === -1) {
         return baseClass;
     }
     return getTodayHighlight(today, date);
 };
 
 const getTodayHighlight = (today: Date, date: Date) => {
+    console.log({ date, today });
 
-    if (dateUtil.compare(date, today) === 0) {
+    if (isSameDay(date, today)) {
         return `bg-red-600 text-white rounded-full h-8 w-8 `;
     }
     return '';
@@ -49,7 +45,7 @@ const Month = ({ label, year, month, startDate, endDate, onClick, tabIndex }: Pr
     const date = new Date(year, month, FIRST_DAY);
     const firstDayOfNextMonth = new Date(year, month + 1, FIRST_DAY);
 
-    if(today == null) return null;
+    if (today == null) return null;
 
     const day = date.getDay();
     const dayNaturalIndex = day === 0 ? 7 : day;
