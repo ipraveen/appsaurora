@@ -21,9 +21,11 @@ const FIRST_DAY = 1;
 const getSelectionHighlight = (today: Date, date: Date, startDate?: string, endDate?: string) => {
     const baseClass = 'bg-theme-200';
 
-    if (startDate && compare(date, startDate) === 0) {
+  
+
+    if (startDate && isSameDay(date, new Date(startDate))) {
         return `${baseClass} rounded-l-full`;
-    } else if (endDate && compare(date, endDate) === 0) {
+    } else if (endDate && isSameDay(date, new Date(endDate))) {
         return `${baseClass} rounded-r-full`;
     } else if (startDate && endDate && compare(date, startDate) === 1 && compare(date, new Date(endDate)) === -1) {
         return baseClass;
