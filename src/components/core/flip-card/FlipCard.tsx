@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, useState } from 'react';
+import React from 'react';
 
 import * as styles from './flipCard.module.css';
 

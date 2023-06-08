@@ -38,23 +38,23 @@ const WordCard = ({ word, onNext, onPrev }: Props) => {
                 className="w-8/12 h-80 max-w-screen-md mx-auto"
                 front={
                     <Paper className={cardCommonClassName}>
-                        <h1 className="text-6xl text-theme-800 capitalize">{name}</h1>
+                        <h1 className="text-6xl text-theme-800 dark:text-slate-300 capitalize">{name}</h1>
                     </Paper>
                 }
                 back={
                     <Paper className={cardCommonClassName}>
-                        <h1 className="text-4xl text-theme-800 capitalize">{name}</h1>
+                        <h1 className="text-4xl text-theme-800 dark:text-slate-300 capitalize">{name}</h1>
                         <ol className="list-inside my-4">
                             {meanings.map((meaning) => (
                                 <li>
-                                    <p className="leading-6 text-theme-700 text-lg">{meaning}</p>
+                                    <p className="leading-6 text-theme-700 dark:text-slate-400 text-lg">{meaning}</p>
                                 </li>
                             ))}
                         </ol>
 
                         <ol className="ml-4 list-disc">
                             {sentences.map((sentence) => (
-                                <li className="leading-6 text-theme-600 text-md">
+                                <li className="leading-6 text-theme-600 dark:text-slate-400 text-md">
                                     <i> {`${sentence}`}</i>
                                 </li>
                             ))}

@@ -2,6 +2,7 @@ import React from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { AutoCompleteOption } from './types';
+import styled from '@emotion/styled';
 
 interface Props {
     className?: string;
@@ -13,9 +14,14 @@ interface Props {
     tabIndex?: number;
 }
 
+const StyledAutoComplete = styled(Autocomplete)`
+    
+   
+`
+
 const AutoCompleteField: React.FC<Props> = ({ id, className, options, label, onChange, value, tabIndex = 0 }) => {
     return (
-        <Autocomplete
+        <StyledAutoComplete
             className={className}
             tabIndex={tabIndex}
             disablePortal

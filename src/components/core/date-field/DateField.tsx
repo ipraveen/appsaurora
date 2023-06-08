@@ -30,7 +30,7 @@ const DateField: React.FC<Props> = ({ className, onChange, value }) => {
     }, [value]);
 
     return (
-        <div className={`flex gap-4 ${className}`}>
+        <div className={`flex gap-4  dark:bg-slate-400 rounded-lg p-4 ${className}`}>
             <YearField tabIndex={1} value={year} onChange={setYear} />
             <MonthField tabIndex={2} value={month} onChange={setMonth} />
             <DateSelect tabIndex={3} year={year} month={month} date={date} onChange={setDate} />
