@@ -21,8 +21,8 @@
     "dependencies": {
         "@appsaurora/ui-components": "1.4.0",
         "@appsaurora/utils": "^1.1.0",
-        "@emotion/react": "^11.11.1",
-        "@emotion/styled": "^11.10.6",
+        "@emotion/react": "11.10.6",
+        "@emotion/styled": "11.10.6",
         "@fontsource/roboto": "^4.5.8",
         "@mdx-js/react": "^2.3.0",
         "@mui/icons-material": "^5.11.0",
