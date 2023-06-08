@@ -36,9 +36,9 @@ const AgeCalculator: React.FC<Props> = (props) => {
 
     return (
         <Paper className="p-12 mt-6">
-            <section className="grid grid-cols-1 lg:grid-cols-2">
+            <section className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <section>
-                    <h1 className="my-2 text-theme-500">What's your Date of birth?</h1>
+                    <h1 className="my-2 text-theme-500 dark:text-slate-300">What's your Date of birth?</h1>
                     <DateField value={age} className="my-2" onChange={setAge} />
                     <section className="flex gap-2 my-4">
                         <Button className="my-2" onClick={handleAgeCalculation} disabled={!Boolean(age)}>

@@ -19,7 +19,7 @@
         "clean:install": "rm -rf node_modules && rm -rf public && npm install"
     },
     "dependencies": {
-        "@appsaurora/ui-components": "1.5.3",
+        "@appsaurora/ui-components": "1.5.8",
         "@appsaurora/utils": "^1.1.0",
         "@emotion/react": "^11.11.1",
         "@emotion/styled": "^11.11.0",
