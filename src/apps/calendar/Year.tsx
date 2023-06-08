@@ -11,12 +11,11 @@ interface Props {
 }
 
 const Year = ({ year, onClick, startDate, endDate, className }: Props) => {
-    console.log({ startDate, endDate });
     return (
         <div className={className}>
-            <h1 className="text-4xl font-medium my-2">{year}</h1>
+            <h1 className="text-4xl font-medium my-2 dark:text-slate-400">{year}</h1>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
                 {months.map(({ value, label }, index) => (
                     <Month
                         label={label}

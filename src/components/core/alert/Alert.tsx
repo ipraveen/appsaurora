@@ -8,11 +8,12 @@ interface Props {
     children: React.ReactNode;
     variant?: 'filled';
     className?: string;
+    onClose?: () => void;
 }
 
-const Alert = ({ type = 'info', title, children, variant, className }: Props) => {
+const Alert = ({ type = 'info', title, children, variant, className , onClose}: Props) => {
     return (
-        <AlertMui className={`border border-l-2 border-blue-100 ${className}`} severity={type} variant={variant}>
+        <AlertMui onClose={onClose} className={`border border-l-2 border-blue-100 dark:bg-slate-300 ${className}`} severity={type} variant={variant}>
             {title && <AlertTitle>{title}</AlertTitle>}
             {children}
         </AlertMui>

@@ -1,4 +1,3 @@
-import styled from '@emotion/styled';
 import React from 'react';
 import { isWeekend } from '@appsaurora/utils';
 
@@ -10,23 +9,25 @@ interface Props {
 
 const Day: React.FC<Props> = ({ className, date, onClick }) => {
     const value = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
-    const handleClick = () => {
+    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+        event.stopPropagation();
+
         onClick?.({
             value,
         });
     };
 
-    // Note: Do not remove calender-day class.
+    // Note: Do not remove calender-day class. text-slate-900 dark:text-white
     return (
-        <button
-            className={`calender-day ${className} grid place-content-center cursor-pointer p-2 ${
-                isWeekend(date) ? 'text-slate-400' : `text-slate-900`
+        <div
+            className={`calender-day ${className} grid place-content-center aspect-square cursor-pointer p-2 ${
+                isWeekend(date) ? 'text-slate-400 dark:text-slate-500' : `text-slate-900 dark:text-slate-200`
             }`}
             data-id={value}
             onClick={handleClick}
         >
             {date.getDate()}
-        </button>
+        </div>
     );
 };
 

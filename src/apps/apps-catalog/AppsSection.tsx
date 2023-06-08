@@ -18,7 +18,7 @@ interface Props {
 const AppsSection: React.FC<Props> = ({ label, items }) => {
     return (
         <section>
-            <h1 className="font-semibold text-md text-theme-800">{label}</h1>
+            <h1 className="font-semibold text-md text-theme-800 dark:text-theme-300">{label}</h1>
             <div className="flex items-center py-6 gap-10">
                 {items.map((item) => {
                     return <AppItem key={item.id} item={item} />;

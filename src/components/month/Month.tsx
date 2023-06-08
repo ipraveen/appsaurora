@@ -19,7 +19,7 @@ interface Props {
 const FIRST_DAY = 1;
 
 const getSelectionHighlight = (today: Date, date: Date, startDate?: string, endDate?: string) => {
-    const baseClass = 'bg-theme-200';
+    const baseClass = 'bg-slate-200 dark:bg-slate-600';
 
   
 
@@ -34,10 +34,9 @@ const getSelectionHighlight = (today: Date, date: Date, startDate?: string, endD
 };
 
 const getTodayHighlight = (today: Date, date: Date) => {
-    console.log({ date, today });
 
     if (isSameDay(date, today)) {
-        return `bg-red-600 text-white rounded-full h-8 w-8 `;
+        return `bg-red-600 text-white rounded-full`;
     }
     return '';
 };
@@ -71,7 +70,7 @@ const Month = ({ label, year, month, startDate, endDate, onClick, tabIndex }: Pr
     }
     return (
         <Paper elevation={1} variant="outlined" className="p-6" tabIndex={tabIndex}>
-            <h1 className="text-theme-600 font-semibold align-middle text-md mb-2 uppercase">{label}</h1>
+            <h1 className="text-theme-600 dark:text-slate-400 font-semibold align-middle text-md mb-2 uppercase">{label}</h1>
             <div className={`grid grid-cols-7 grid-rows-5`}>
                 <WeekHeader />
                 {days}

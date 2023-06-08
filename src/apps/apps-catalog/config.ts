@@ -11,20 +11,15 @@ const apps = [
                 Icon: CalendarMonthRounded,
                 color: '#3B78C6'
             },
-        ],
-    },
-    {
-        groupId: 'aboutMe',
-        groupLabel: 'About Me',
-        items: [
             {
                 id: 'age',
-                label: 'Age Calculator',
+                label: 'My Age',
                 Icon: EmojiPeople,
                 color: '#788d6b'
             },
         ],
     },
+   
     // {
     //     groupId: 'dateTime',
     //     groupLabel: 'Time',

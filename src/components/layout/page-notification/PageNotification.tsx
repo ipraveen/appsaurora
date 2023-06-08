@@ -20,7 +20,7 @@ const PageNotification: React.FC<Props> = (props) => {
 
     return (
         <NotificationContainer
-            className="bg-slate-100 p-2 border border-slate-100 fixed top-0 z-50 w-full"
+            className="bg-slate-100 dark:bg-slate-300 p-2 border border-slate-100 fixed top-0 z-50 w-full"
             show={Boolean(state?.children)}
         >
             <Container>{state.children}</Container>

@@ -13,7 +13,7 @@ export default function AppLogo({ Icon, label, type, color }: Props) {
         const backgroundColor = `${color}22`;
         const outlineColor = `${color}33`;
         return (
-            <div className="flex flex-col justify-center items-center gap-3 border border-white hover:border-theme-400 px-6 py-4 rounded-xl">
+            <div className="flex flex-col justify-center items-center gap-3  px-6 py-4 rounded-xl">
                 <div
                     style={{
                         backgroundColor,
@@ -32,7 +32,7 @@ export default function AppLogo({ Icon, label, type, color }: Props) {
                     />
                 </div>
 
-                <label className="text-theme-700 font-medium">{label}</label>
+                <label className="text-theme-700 dark:text-slate-400 font-medium">{label}</label>
             </div>
         );
     }
@@ -40,9 +40,9 @@ export default function AppLogo({ Icon, label, type, color }: Props) {
     if (type === 'inline-block') {
         return (
             <div className="flex justify-start items-center gap-2">
-                <Icon className="text-theme-700" sx={{ fontSize: 36 }} />
+                <Icon className="text-slate-700 dark:text-slate-100 " sx={{ fontSize: 36 }} />
                 <h1 className="text-3xl">
-                    <small className=" text-theme-700 tracking-wide font-light lowercase">{label}</small>
+                    <small className="text-slate-700 dark:text-slate-100 tracking-wide font-light lowercase">{label}</small>
                 </h1>
             </div>
         );
