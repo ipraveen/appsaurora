@@ -30,7 +30,6 @@ const gatsbyConfig: GatsbyConfig = {
             },
         },
         `gatsby-transformer-sharp`,
-        'gatsby-plugin-material-ui',
         'gatsby-plugin-sitemap',
         'gatsby-plugin-postcss',
         'gatsby-plugin-emotion',
