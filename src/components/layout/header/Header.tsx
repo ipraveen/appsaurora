@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Logo from 'components/logo/Logo';
 import AppLogo from 'components/app-logo/AppLogo';
 import Container from '../container/Container';
-import { Icon as IconComponent, SettingsDrawer } from '@appsaurora/ui-components';
+import { SettingsDrawer, Icon as IconComponent } from '@appsaurora/ui-components';
 import styled from '@emotion/styled';
 
 interface Props {
@@ -11,12 +11,12 @@ interface Props {
 }
 
 const StyledHeader = styled.header`
-     background: radial-gradient(
-                      55.36% 221.46% at 23.59% 28.54%,
-                      var(--clr-theme-light) 1.6%,
-                      var(--clr-theme-dark) 100%
-                  );
-`
+    background: radial-gradient(
+        55.36% 221.46% at 23.59% 28.54%,
+        var(--clr-theme-light) 1.6%,
+        var(--clr-theme-dark) 100%
+    );
+`;
 
 export default function Header({ Icon, label }: Props) {
     const [settingOpen, setSettingOpen] = useState(false);

@@ -4,12 +4,12 @@ import Year from './Year';
 import { getCurrentYear, compare } from '@appsaurora/utils';
 import { Alert } from 'components/core';
 import { AppProps } from 'components/layout/app-layout/AppLayout';
-import InfoPanel from 'apps/info-panel/InfoPanel';
+import { usePreferenceStorage } from 'storage/hooks/usePreferenceStorage';
 
 interface Props extends AppProps {}
 
 const Calendar = (props: Props) => {
-    const [hideInfo, setHideInfo] = useState(localStorage.hideCalendarInfo);
+    const [hideCalendarInfo, setHideCalendarInfo] = usePreferenceStorage('hideCalendarInfo');
     const [startDate, setStartDate] = useState<string | null>(null);
     const [endDate, setEndDate] = useState<string | null>(null);
     useEffect(() => {}, []);
@@ -64,14 +64,13 @@ const Calendar = (props: Props) => {
 
     return (
         <div className="p-2" onClick={onClearClick}>
-            {!hideInfo && (
+            {!hideCalendarInfo && (
                 <Alert
                     type="info"
-                    elevation={0}
                     title="How to use this app?"
                     onClose={() => {
-                        setHideInfo(true);
-                        localStorage.hideCalendarInfo = true;
+                        setHideCalendarInfo(true);
+                        window.localStorage.hideCalendarInfo = true;
                     }}
                 >
                     <p className="text-base">

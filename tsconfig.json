@@ -21,6 +21,6 @@
         "allowJs": false,
         "skipLibCheck": true
     },
-    "include": ["./src/**/*", "./gatsby-node.ts", "./gatsby-config.ts", "./plugins/**/*", "./node_modules/@appsaurora/ui-components/**/*"],
-    "exclude": ["build", "examples"]
+    "include": ["./src/**/*", "./gatsby-node.ts", "./gatsby-config.ts"],
+    "exclude": ["build", "examples", "public"]
 }
