@@ -12,6 +12,7 @@ type NumberInput = {
 type TextInput = {
     type: 'text';
     value: string;
+    disabled?: boolean;
     onChangeValue?: (value: string) => void;
 };
 
@@ -32,7 +33,7 @@ const StyledInput = styled.input`
     }
 `;
 
-function TextField({ type, onChangeValue, className, min, max, placeholder }: Props) {
+function TextField({ type, onChangeValue, className, min, max, placeholder, disabled }: Props) {
     const [valid, setValidity] = useState(true);
 
     console.log({ valid });
@@ -60,6 +61,7 @@ function TextField({ type, onChangeValue, className, min, max, placeholder }: Pr
             onChange={handleChange}
             min={min}
             max={max}
+            disabled={disabled}
             placeholder={placeholder}
         />
     );

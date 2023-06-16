@@ -1,8 +1,9 @@
-import { Button, DateField, Paper } from 'components/core';
+import { DateField, Paper } from 'components/core';
 import React, { useState } from 'react';
 import { dateDiff } from '@appsaurora/utils';
 import AgeDisplay from './AgeDisplay';
 import { usePreferenceStorage } from 'storage/hooks/usePreferenceStorage';
+import Button from 'components/core/button/Button';
 
 interface Props {}
 
@@ -15,7 +16,7 @@ const AgeCalculator: React.FC<Props> = (props) => {
 
     const handleAgeCalculation = () => {
         if (age) {
-            const months = dateDiff(new Date(), age, "month");
+            const months = dateDiff(new Date(), age, 'month');
             setClickedOnce(true);
             setAgeYear(Number(Math.floor(months / 12)));
             setAgeMonth(Number(Math.floor(months % 12)));

@@ -1,4 +1,4 @@
-import { TextField } from 'components/core';
+import TextField from 'components/core/text-field/TextField';
 import AutoComplete, { AutoCompleteOption } from 'components/core/AutoComplete';
 import React from 'react';
 import { lastDayOfMonth, getFirstDateOfMonth, addDays } from '@appsaurora/utils';
