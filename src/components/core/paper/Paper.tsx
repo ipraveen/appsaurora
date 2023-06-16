@@ -7,6 +7,8 @@ interface Props {
     variant?: 'outlined';
 }
 
+
+
 const Paper: React.FC<Props> = ({ children, tabIndex, className, variant = 'outlined' }) => {
     return (
         <div

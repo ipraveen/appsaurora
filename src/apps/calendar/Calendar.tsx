@@ -9,7 +9,6 @@ import { usePreferenceStorage } from 'storage/hooks/usePreferenceStorage';
 interface Props extends AppProps {}
 
 const Calendar = (props: Props) => {
-    const [hideCalendarInfo, setHideCalendarInfo] = usePreferenceStorage('hideCalendarInfo');
     const [startDate, setStartDate] = useState<string | null>(null);
     const [endDate, setEndDate] = useState<string | null>(null);
     useEffect(() => {}, []);
@@ -64,21 +63,16 @@ const Calendar = (props: Props) => {
 
     return (
         <div className="p-2" onClick={onClearClick}>
-            {!hideCalendarInfo && (
-                <Alert
-                    type="info"
-                    title="How to use this app?"
-                    onClose={() => {
-                        setHideCalendarInfo(true);
-                        window.localStorage.hideCalendarInfo = true;
-                    }}
-                >
-                    <p className="text-base">
-                        Click on dates to select a data range, we will calculate the total number of days, weekdays, and
-                        weekends, for you.
-                    </p>
-                </Alert>
-            )}
+            <Alert
+                type="info"
+                title="How to use this app?"
+            >
+                <p className="text-base">
+                    Click on dates to select a data range, we will calculate the total number of days, weekdays, and
+                    weekends, for you.
+                </p>
+            </Alert>
+
             <Year className="my-6" year={year} onClick={onClick} startDate={startDate} endDate={endDate} />
             {/** Next Year */}
             <Year className="my-6" year={year + 1} onClick={onClick} startDate={startDate} endDate={endDate} />

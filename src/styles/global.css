@@ -6,8 +6,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
 
 :root {
+   
     color-scheme: light;
-
     --clr-theme-background: #ffffff;
     --clr-theme-dark: #ffffff;
     --clr-theme-light: #ffffff;
@@ -15,7 +15,6 @@
 
 .dark {
     color-scheme: dark;
-
     --clr-theme-background: #ffffff;
     --clr-theme-dark: #334155;
     --clr-theme-light: #1e293b;

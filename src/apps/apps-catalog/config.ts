@@ -1,4 +1,4 @@
-import { CalendarMonthRounded, EmojiPeople, Wysiwyg } from '@mui/icons-material';
+import { CalendarMonthRounded, EmojiPeople, Wysiwyg, AvTimer } from '@mui/icons-material';
 
 const apps = [
     {
@@ -9,34 +9,29 @@ const apps = [
                 id: 'calendar',
                 label: 'Calendar',
                 Icon: CalendarMonthRounded,
-                color: '#3B78C6'
+                color: '#3B78C6',
             },
             {
                 id: 'age',
                 label: 'My Age',
                 Icon: EmojiPeople,
-                color: '#788d6b'
+                color: '#788d6b',
             },
         ],
     },
-   
-    // {
-    //     groupId: 'dateTime',
-    //     groupLabel: 'Time',
-    //     items: [
-    //         {
-    //             id: 'timer',
-    //             label: 'Timer',
-    //             icon: faHourglass,
-    //         },
-    //         {
-    //             id: 'countdown',
-    //             label: 'Countdown',
-    //             icon: faStopwatch20,
-    //             inDev: true,
-    //         },
-    //     ],
-    // },
+
+    {
+        groupId: 'dateTime',
+        groupLabel: 'Time',
+        items: [
+            {
+                id: 'timer',
+                label: 'Timer',
+                Icon: AvTimer,
+                color: '#701a75',
+            },
+        ],
+    },
     {
         groupId: 'english',
         groupLabel: 'Words & Grammar',
@@ -45,7 +40,7 @@ const apps = [
                 id: 'wordCards',
                 label: 'Word Cards',
                 Icon: Wysiwyg,
-                color: '#b27001'
+                color: '#b27001',
             },
         ],
     },

@@ -21,8 +21,6 @@ const FIRST_DAY = 1;
 const getSelectionHighlight = (today: Date, date: Date, startDate?: string, endDate?: string) => {
     const baseClass = 'bg-slate-200 dark:bg-slate-600';
 
-  
-
     if (startDate && isSameDay(date, new Date(startDate))) {
         return `${baseClass} rounded-l-full`;
     } else if (endDate && isSameDay(date, new Date(endDate))) {
@@ -34,9 +32,8 @@ const getSelectionHighlight = (today: Date, date: Date, startDate?: string, endD
 };
 
 const getTodayHighlight = (today: Date, date: Date) => {
-
     if (isSameDay(date, today)) {
-        return `bg-red-600 text-white rounded-full`;
+        return `day-today bg-red-500 text-white rounded-full`;
     }
     return '';
 };
@@ -68,9 +65,13 @@ const Month = ({ label, year, month, startDate, endDate, onClick, tabIndex }: Pr
         days.push(<Day onClick={onClick} className={className} key={date.getTime()} date={new Date(date)} />);
         addDays(date, 1);
     }
+
+   
     return (
-        <Paper elevation={1} variant="outlined" className="p-6" tabIndex={tabIndex}>
-            <h1 className="text-theme-600 dark:text-slate-400 font-semibold align-middle text-md mb-2 uppercase">{label}</h1>
+        <Paper variant="outlined" className="p-6" tabIndex={tabIndex}>
+            <h1 className="text-theme-600 dark:text-slate-400 font-semibold align-middle text-md mb-2 uppercase">
+                {label}
+            </h1>
             <div className={`grid grid-cols-7 grid-rows-5`}>
                 <WeekHeader />
                 {days}
