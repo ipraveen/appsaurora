@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { AppLayout } from 'components/layout';
-import Timer from 'apps/Timer';
+import Timer from 'apps/Timer/Timer';
 import SEO from 'components/seo/SEO';
 import { HeadProps, PageProps } from 'gatsby';
 
