@@ -8,7 +8,7 @@ interface Props {}
 const AppsCatalog = () => {
     const apps = getApps();
     return (
-        <Paper className="flex flex-col gap-6 p-12 ">
+        <Paper testId="catalog" className="flex flex-col gap-6 p-12 ">
             {apps.map(({ groupLabel, items }) => (
                 <AppsSection key={groupLabel} label={groupLabel} items={items} />
             ))}

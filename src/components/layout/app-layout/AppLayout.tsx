@@ -7,6 +7,7 @@ import styled from '@emotion/styled';
 interface Props {
     children: React.ReactNode;
     appName?: string;
+    testId: string;
     state?: {
         appId: string;
         icon: IconDefinition;
@@ -35,6 +36,7 @@ interface NotificationStateProps {
 interface NotificationActionProps {
     type: string;
     data: any;
+   
 }
 
 function notificationReducer(state: NotificationStateProps, action: NotificationActionProps): NotificationStateProps {
@@ -69,9 +71,8 @@ export default function AppLayout({ children, state, appName }: Props) {
 
     const app = getApp(appName);
 
-
     return (
-        <StyledContainer className='bg-slate-50 dark:bg-slate-900'>
+        <StyledContainer data-testid={appName} className="bg-slate-50 dark:bg-slate-900">
             <Header Icon={app?.Icon} label={app?.label} />
             <PageNotification state={notificationState} />
             <div className="container mx-auto my-4">{childrenWithProps}</div>

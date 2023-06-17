@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { AppLayout } from 'components/layout';
-import Timer from 'apps/Timer/Timer';
+import Timer from 'apps/Timer';
 import SEO from 'components/seo/SEO';
 import { HeadProps, PageProps } from 'gatsby';
 
@@ -9,7 +9,7 @@ const TimerPage = (props: PageProps) => {
     const { state } = location;
 
     return (
-        <AppLayout state={state}>
+        <AppLayout appName='timer' state={state}>
             <Timer />
         </AppLayout>
     );
