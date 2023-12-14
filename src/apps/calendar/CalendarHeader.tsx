@@ -12,13 +12,10 @@ const CalenderHeader: React.FC<Props> = ({ startDate, endDate }) => {
     const { days, weekends, weekdays } = getDateRangeDetails(startDate, endDate);
 
     return (
-        <div className="">
-            <div className="flex items-center justify-around">
-                <HeaderInfo value={days} color="#e11d48" label="Days" />
-                <HeaderInfo value={weekdays} color='#0ea5e9' label="Weekdays" />
-                <HeaderInfo value={weekends} color='#43A088' label="Weekends" />
-               
-            </div>
+        <div className="flex items-center justify-around">
+            <HeaderInfo value={days} color="#e11d48" label="Days" />
+            <HeaderInfo value={weekdays} color="#0ea5e9" label="Weekdays" />
+            <HeaderInfo value={weekends} color="#43A088" label="Weekends" />
         </div>
     );
 };

@@ -4,7 +4,6 @@ import Year from './Year';
 import { getCurrentYear, compare } from '@appsaurora/utils';
 import { Alert } from 'components/core';
 import { AppProps } from 'components/layout/app-layout/AppLayout';
-import { usePreferenceStorage } from 'storage/hooks/usePreferenceStorage';
 
 interface Props extends AppProps {}
 
