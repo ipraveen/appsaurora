@@ -9,8 +9,6 @@ interface Props {
 function CustomTimers({ onChange }: Props) {
     const [timerTime, setTimerTime] = useState('');
 
-    console.log({ timerTime });
-
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.stopPropagation();
         event.preventDefault();

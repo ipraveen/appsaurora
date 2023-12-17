@@ -36,8 +36,6 @@ const StyledInput = styled.input`
 function TextField({ type, onChangeValue, className, min, max, placeholder, disabled }: Props) {
     const [valid, setValidity] = useState(true);
 
-    console.log({ valid });
-
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const field = event.currentTarget;
 

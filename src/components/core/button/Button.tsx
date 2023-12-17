@@ -33,7 +33,7 @@ const Button: React.FC<Props> = (props) => {
     const { onClick, children, color, variant = 'contained', className, disabled } = props;
 
     return (
-        <StyledButton className={className} onClick={onClick} disabled={disabled}>
+        <StyledButton  className={className} onClick={onClick} disabled={disabled}>
             {children}
         </StyledButton>
     );

@@ -5,7 +5,7 @@ import SEO from 'components/seo/SEO';
 
 const AgeIndexPagePage = () => {
     return (
-        <AppLayout>
+        <AppLayout appName='catalog-page'>
             <AppsCatalog />
         </AppLayout>
     );

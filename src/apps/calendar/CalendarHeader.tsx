@@ -1,23 +1,31 @@
+import { Checkbox } from 'components/core';
 import React from 'react';
-import HeaderInfo from './HeaderInfo';
-import { getDateRangeDetails } from './helper';
 
-interface Props {
-    year: number;
-    startDate: string;
-    endDate: string;
-}
-
-const CalenderHeader: React.FC<Props> = ({ startDate, endDate }) => {
-    const { days, weekends, weekdays } = getDateRangeDetails(startDate, endDate);
+export default function CalendarHeader({ year, showNextYear, showPreviousYear, setShowNextYear, setShowPreviousYear }) {
+    const [pYear, nYear] = [year - 1, year + 1];
 
     return (
-        <div className="flex items-center justify-around">
-            <HeaderInfo value={days} color="#e11d48" label="Days" />
-            <HeaderInfo value={weekdays} color="#0ea5e9" label="Weekdays" />
-            <HeaderInfo value={weekends} color="#43A088" label="Weekends" />
+        <div className="flex justify-between items-baseline z-30">
+            <h1 className="text-4xl font-medium my-2 dark:text-slate-400">{year}</h1>
+            <div className="flex justify-between items-baseline gap-4">
+                <Checkbox
+                    className="text-xl font-medium dark:text-slate-400"
+                    id={`${pYear}`}
+                    label={pYear}
+                    checked={showPreviousYear}
+                    onChange={(event) => {
+                        setShowPreviousYear(event.target.checked);
+                    }}
+                />
+
+                <Checkbox
+                    className="text-xl font-medium dark:text-slate-400"
+                    id={`${nYear}`}
+                    label={nYear}
+                    checked={showNextYear}
+                    onChange={(event) => setShowNextYear(event.target.checked)}
+                />
+            </div>
         </div>
     );
-};
-
-export default CalenderHeader;
+}

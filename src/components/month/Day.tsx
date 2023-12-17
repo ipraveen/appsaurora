@@ -24,6 +24,7 @@ const Day: React.FC<Props> = ({ className, date, onClick }) => {
                 isWeekend(date) ? 'text-slate-400 dark:text-slate-500' : `text-slate-900 dark:text-slate-200`
             }`}
             data-id={value}
+            data-testid={`date_${value}`} 
             onClick={handleClick}
         >
             <div className={`${className} p-2 rounded-full w-8 h-8 grid place-content-center aspect-square`}>{date.getDate()}</div>

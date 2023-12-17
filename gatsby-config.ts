@@ -10,6 +10,9 @@ const gatsbyConfig: GatsbyConfig = {
         twitterUsername: '@i_praveensingh',
     },
     graphqlTypegen: true,
+    flags: {
+        DEV_SSR: true,
+    },
     plugins: [
         `gatsby-plugin-image`,
         {
@@ -53,4 +56,3 @@ const gatsbyConfig: GatsbyConfig = {
     ],
 };
 export default gatsbyConfig;
-

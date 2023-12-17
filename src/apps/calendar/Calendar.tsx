@@ -1,24 +1,37 @@
-import CalendarHeader from './CalendarHeader';
+import CalenderSelectionInformation from './CalenderSelectionInformation';
 import React, { MouseEvent, useEffect, useState } from 'react';
 import Year from './Year';
 import { getCurrentYear, compare } from '@appsaurora/utils';
-import { Alert } from 'components/core';
+import { Alert, Button } from 'components/core';
 import { AppProps } from 'components/layout/app-layout/AppLayout';
+import CalendarHeader from './CalendarHeader';
+import { usePreferenceStorage } from 'storage/hooks/usePreferenceStorage';
+import useNavigation from 'hooks/useNavigation';
 
 interface Props extends AppProps {}
 
-const Calendar = (props: Props) => {
-    const [startDate, setStartDate] = useState<string | null>(null);
-    const [endDate, setEndDate] = useState<string | null>(null);
+const Calendar = ({ app}: Props) => {
+    const [showNextYear, setShowNextYear] = useState(false);
+    const [showPreviousYear, setShowPreviousYear] = useState(false);
+    const [showInfo = true, setInfoStorageValue] = usePreferenceStorage<boolean>('CALENDAR_INFO');
+
+    const { params, setParams } = useNavigation();
+    const { startDate, endDate } = params;
+
     useEffect(() => {}, []);
 
     const year = getCurrentYear();
-    const onClick = ({ value }: { value: string }) => {
+    const onClick = async ({ value }: { value: string }) => {
         // None selected
 
+        let newStartDate = startDate;
+        let newEndDate = endDate;
+
         if (startDate == null && endDate == null) {
-            setStartDate(value);
-        } else if (startDate && endDate == null) {
+            setParams({ startDate: value });
+        }
+
+        if (startDate && endDate == null) {
             const sDate = new Date(startDate);
             const eDate = new Date(value);
 
@@ -27,28 +40,28 @@ const Calendar = (props: Props) => {
             }
 
             if (compare(sDate, eDate) === 1) {
-                setEndDate(startDate);
-                setStartDate(value);
+                setParams({ startDate: value, endDate: startDate });
+
                 return;
             }
 
-            setEndDate(value);
+            setParams({ endDate: value });
         } else if (startDate && endDate) {
-            setStartDate(value);
-            setEndDate(null);
+            setParams({ startDate: value, endDate: null });
         }
     };
 
     useEffect(() => {
         if (startDate && endDate) {
-            return props.app.notification.dispatch({
+            return app?.notification.dispatch({
                 type: 'UPDATE_CHILDREN',
-                data: <CalendarHeader year={year} startDate={startDate} endDate={endDate} />,
+                node: <CalenderSelectionInformation year={year} startDate={startDate} endDate={endDate} />,
+                position: 'bottom',
             });
         }
-        props.app.notification.dispatch({
+        app?.notification.dispatch({
             type: 'UPDATE_CHILDREN',
-            data: null,
+            node: null,
         });
     }, [startDate, endDate]);
 
@@ -56,25 +69,49 @@ const Calendar = (props: Props) => {
         const element = event.target as Element;
 
         if (element.classList.contains('calender-day')) return;
-        setStartDate(null);
-        setEndDate(null);
+        setParams({ startDate: null, endDate: null });
     };
 
     return (
-        <div className="p-2" onClick={onClearClick}>
-            <Alert
-                type="info"
-                title="How to use this app?"
-            >
-                <p className="text-base">
-                    Click on dates to select a data range, we will calculate the total number of days, weekdays, and
-                    weekends, for you.
-                </p>
-            </Alert>
+        <div className="p-1" onClick={onClearClick}>
+            {showInfo && (
+                <Alert
+                    type="info"
+                    title="How to use this app?"
+                    onClose={() => {
+                        setInfoStorageValue(false);
+                    }}
+                >
+                    <p className="text-base">
+                        Click on dates to select a data range. We will calculate the total number of days, weekdays, and
+                        weekends, for you.
+                    </p>
+                </Alert>
+            )}
 
-            <Year className="my-6" year={year} onClick={onClick} startDate={startDate} endDate={endDate} />
-            {/** Next Year */}
-            <Year className="my-6" year={year + 1} onClick={onClick} startDate={startDate} endDate={endDate} />
+            {showPreviousYear && (
+                <Year className="my-6" year={year - 1} onClick={onClick} startDate={startDate} endDate={endDate} />
+            )}
+
+            <CalendarHeader
+                year={year}
+                showNextYear={showNextYear}
+                showPreviousYear={showPreviousYear}
+                setShowNextYear={setShowNextYear}
+                setShowPreviousYear={setShowPreviousYear}
+            />
+
+            <Year
+                className="my-4"
+                hideLabel={true}
+                year={year}
+                onClick={onClick}
+                startDate={startDate}
+                endDate={endDate}
+            />
+            {showNextYear && (
+                <Year className="my-6" year={year + 1} onClick={onClick} startDate={startDate} endDate={endDate} />
+            )}
         </div>
     );
 };

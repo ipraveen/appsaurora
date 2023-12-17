@@ -7,7 +7,6 @@ import styled from '@emotion/styled';
 interface Props {
     children: React.ReactNode;
     appName?: string;
-    testId: string;
     state?: {
         appId: string;
         icon: IconDefinition;
@@ -22,7 +21,8 @@ const StyledContainer = styled.div`
 `;
 
 export interface AppProps {
-    app: {
+    params?: Record<string, string>;
+    app?: {
         notification: {
             dispatch: React.Dispatch<NotificationActionProps>;
         };
@@ -35,8 +35,8 @@ interface NotificationStateProps {
 
 interface NotificationActionProps {
     type: string;
-    data: any;
-   
+    node: any;
+    position?: 'top' | 'bottom';
 }
 
 function notificationReducer(state: NotificationStateProps, action: NotificationActionProps): NotificationStateProps {
@@ -44,14 +44,14 @@ function notificationReducer(state: NotificationStateProps, action: Notification
         case 'UPDATE_CHILDREN': {
             return {
                 ...state,
-                children: action.data,
+                ...action,
             };
         }
     }
     throw Error('Unknown action: ' + action.type);
 }
 
-export default function AppLayout({ children, state, appName }: Props) {
+export default function AppLayout({ children, state, appName = '' }: Props) {
     const initialState: NotificationStateProps = {};
     const [notificationState, notificationDispatch] = useReducer(notificationReducer, initialState);
 
@@ -72,11 +72,14 @@ export default function AppLayout({ children, state, appName }: Props) {
     const app = getApp(appName);
 
     return (
-        <StyledContainer data-testid={appName} className="bg-slate-50 dark:bg-slate-900">
-            <Header Icon={app?.Icon} label={app?.label} />
+        <>
             <PageNotification state={notificationState} />
-            <div className="container mx-auto my-4">{childrenWithProps}</div>
-            <Footer />
-        </StyledContainer>
+            <StyledContainer data-testid={appName} className="bg-slate-50 dark:bg-slate-900">
+                <Header Icon={app?.Icon} label={app?.label} />
+
+                <div className="container mx-auto my-4">{childrenWithProps}</div>
+                <Footer />
+            </StyledContainer>
+        </>
     );
 }

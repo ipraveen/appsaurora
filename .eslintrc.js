@@ -5,6 +5,9 @@ module.exports = {
         node: true,
         'cypress/globals': true,
     },
+    globals: {
+        navigation: "readonly",
+    },
     extends: ['eslint:recommended', 'plugin:react/recommended'],
     overrides: [],
     parserOptions: {

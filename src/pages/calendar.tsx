@@ -2,12 +2,14 @@ import * as React from 'react';
 import Calendar from 'apps/calendar/Calendar';
 import { AppLayout } from 'components/layout';
 import SEO from 'components/seo/SEO';
-import { HeadProps } from 'gatsby';
+import { HeadProps, PageProps } from 'gatsby';
 
-const CalendarPage = () => {
+const CalendarPage = (props: PageProps) => {
+    const { params } = props;
+
     return (
         <AppLayout appName="calendar">
-            <Calendar />
+            <Calendar params={params} />
         </AppLayout>
     );
 };
@@ -16,6 +18,7 @@ export default CalendarPage;
 
 export const Head = (props: HeadProps) => {
     const { location } = props;
+
     return (
         <SEO
             title="Calendar"

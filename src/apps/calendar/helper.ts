@@ -1,6 +1,8 @@
 import { isWeekend, addDays } from '@appsaurora/utils';
 
-export const getDateRangeDetails = (startDate: string, endDate: string) => {
+export const getDateRangeDetails = (startDate: string | null, endDate: string | null) => {
+    if (startDate == null || endDate == null) return { days: 0, weekends: 0, weekdays: 0 };
+    
     const sDate = new Date(startDate);
     const eDate = new Date(endDate);
     let days = 0;
@@ -15,14 +17,6 @@ export const getDateRangeDetails = (startDate: string, endDate: string) => {
     }
 
     const weekdays = days - weekends;
-
-    console.log({
-        startDate,
-        endDate,
-        days,
-        weekends,
-        weekdays,
-    });
 
     return { days, weekends, weekdays };
 };
