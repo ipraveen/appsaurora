@@ -3,7 +3,7 @@ import { CalendarMonthRounded, EmojiPeople, Wysiwyg, AvTimer } from '@mui/icons-
 const apps = [
     {
         groupId: 'dateAndTime',
-        groupLabel: 'Date and Time',
+        groupLabel: 'Date',
         items: [
             {
                 id: 'calendar',
@@ -13,7 +13,7 @@ const apps = [
             },
             {
                 id: 'age',
-                label: 'My Age',
+                label: 'Age Calculator',
                 Icon: EmojiPeople,
                 color: '#788d6b',
             },

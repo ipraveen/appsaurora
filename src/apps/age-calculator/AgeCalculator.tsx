@@ -13,8 +13,10 @@ const AgeCalculator: React.FC<Props> = (props) => {
     const [ageMonth, setAgeMonth] = useState<number>();
     const [clickedOnce, setClickedOnce] = useState(false);
     const [ageHistory, setHistory] = usePreferenceStorage<Date[]>('AGE_CALCULATOR_HISTORY');
+    const [isDateValid, setDateValidity] = useState(true);
 
     const handleAgeCalculation = () => {
+        console.log(' handleAgeCalculation age => ', age);
         if (age) {
             const months = dateDiff(new Date(), age, 'month');
             setClickedOnce(true);
@@ -35,14 +37,22 @@ const AgeCalculator: React.FC<Props> = (props) => {
         setAge(null);
     };
 
+    console.log('age => ', age);
+
     return (
         <Paper className="p-12 mt-6">
-            <section className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                <section>
+            <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <section className="flex flex-col gap-3">
                     <h1 className="my-2 text-theme-500 dark:text-slate-300">What's your Date of birth?</h1>
-                    <DateField value={age} className="my-2" onChange={setAge} />
-                    <section className="flex gap-2 my-4">
-                        <Button className="my-2" onClick={handleAgeCalculation} disabled={!Boolean(age)}>
+                    <DateField
+                        value={age}
+                        className=""
+                        onChange={setAge}
+                        onValidityChange={(val) => setDateValidity(val)}
+                        error={isDateValid ? '' : 'Please enter a valid date'}
+                    />
+                    <section className="flex gap-2">
+                        <Button className="my-2" onClick={handleAgeCalculation} disabled={!isDateValid}>
                             Calculate
                         </Button>
                         <Button variant="outlined" className="my-2" onClick={handleClear}>
@@ -58,7 +68,7 @@ const AgeCalculator: React.FC<Props> = (props) => {
             {/* <h1>History</h1> */}
 
             {/* {ageHistory?.map((history) => (
-                <div>{history.toString()}</div>
+                <div>{history.toLocaleDateString()}</div>
             ))} */}
         </Paper>
     );

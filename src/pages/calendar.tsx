@@ -21,7 +21,7 @@ export const Head = (props: HeadProps) => {
 
     return (
         <SEO
-            title="Calendar"
+            title="calendar"
             description="A Simple Calendar app to see the dates, find date range, weekends, weekdays, etc."
             pathname={location.pathname}
         />

@@ -30,6 +30,7 @@ const YearField: React.FC<Props> = ({ className, onChange, value, tabIndex }) =>
 
     return (
         <div className={className}>
+            <input className='border border-slate-300 rounded-md py-2 px-4' placeholder='Year' type='number' min={1900} max={new Date().getFullYear()}/>
             <AutoCompleteField
                 tabIndex={tabIndex}
                 className="w-32"

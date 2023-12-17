@@ -23,7 +23,7 @@ const AgeDisplay: React.FC<Props> = ({ ageCalculated, ageYear = 0, ageMonth  = 0
 
     if (!ageCalculated) {
         return (
-            <Paper className="flex justify-center flex-col items-center border">
+            <Paper className="flex justify-center flex-col items-center border py-6">
                 <h1 className="text-theme-600 mb-6">Select your date of birth and we will tell you you're age</h1>
                 <SettingsAccessibility className="text-theme-500" sx={{ fontSize: 150 }} />
             </Paper>

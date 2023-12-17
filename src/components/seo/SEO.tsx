@@ -14,7 +14,6 @@ const useSiteMetadata = () => {
             site {
                 siteMetadata {
                     title
-                    description
                     twitterUsername
                     image
                     siteUrl
@@ -26,12 +25,13 @@ const useSiteMetadata = () => {
     return data.site.siteMetadata;
 };
 
-const SEO = ({ title, description, pathname, children }: Props) => {
-    const { title: defaultTitle, description: defaultDescription, image, siteUrl, twitterUsername } = useSiteMetadata();
+const SEO = ({ title: pageTitle, description, pathname, children }: Props) => {
+    const { title: appTitle, image, siteUrl, twitterUsername } = useSiteMetadata();
+    const title = pageTitle? `${pageTitle} | ${appTitle}` : appTitle;
 
     const seo = {
-        title: title || defaultTitle,
-        description: description || defaultDescription,
+        title,
+        description: description,
         image: `${siteUrl}${image}`,
         url: `${siteUrl}${pathname || ``}`,
         twitterUsername,
@@ -39,7 +39,7 @@ const SEO = ({ title, description, pathname, children }: Props) => {
 
     return (
         <>
-            <title>{`${seo.title} | ${defaultTitle} | ${description}`}</title>
+            <title>{`${seo.title} | ${description}`}</title>
             <meta name="description" content={seo.description} />
             <meta name="image" content={seo.image} />
             <meta name="twitter:card" content="summary_large_image" />

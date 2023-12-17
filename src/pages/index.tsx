@@ -15,7 +15,7 @@ export default AgeIndexPagePage;
 
 export const Head = () => (
     <SEO
-        title="AppsAurora"
-        description="AppsAurora has all the apps you will need in your daily life. A Calender, a Timer, an Alarm, image cropper...well you name it!"
+        title=""
+        description="appsaurora is a cloud apps development company. We build cloud apps for your business and daily use."
     />
 );
