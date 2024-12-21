@@ -1,3 +1,3 @@
-import Timer from './components/Timer';
+import Timer from './components/TimerApp';
 
 export { Timer };
