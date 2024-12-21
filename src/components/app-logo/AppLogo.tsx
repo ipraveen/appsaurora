@@ -17,8 +17,6 @@ export default function AppLogo({ Icon, label, type, color }: Props) {
                 <div
                     style={{
                         backgroundColor,
-                        outline: `2px solid ${outlineColor}`,
-                        outlineOffset: '2px',
                     }}
                     className="rounded-full w-20 h-20 grid place-content-center "
                 >

@@ -22,7 +22,7 @@ export const Head = (props: HeadProps) => {
     return (
         <SEO
             title="calendar"
-            description="A Simple Calendar app to see the dates, find date range, weekends, weekdays, etc."
+            description="Calendar app to see the dates, find date range, weekends, weekdays, etc. by appsaurora.com"
             pathname={location.pathname}
         />
     );

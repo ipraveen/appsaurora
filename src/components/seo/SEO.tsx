@@ -39,7 +39,7 @@ const SEO = ({ title: pageTitle, description, pathname, children }: Props) => {
 
     return (
         <>
-            <title>{`${seo.title} | ${description}`}</title>
+            <title>{description}</title>
             <meta name="description" content={seo.description} />
             <meta name="image" content={seo.image} />
             <meta name="twitter:card" content="summary_large_image" />
