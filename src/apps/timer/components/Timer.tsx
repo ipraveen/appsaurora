@@ -5,6 +5,7 @@ import { useTimer } from 'apps/timer/hooks/useTimer';
 import { RadialMeter } from 'components/radial-meter';
 import { Button } from 'components/core';
 import './timer.css';
+import { formatTime } from 'utils/time';
 
 interface Props {
     duration: number;
@@ -42,16 +43,18 @@ export default function Timer({ duration, resetTimer }) {
 
     const pct = 100 - Math.floor(((duration - timeLeft) / duration) * 100);
 
+    console.log({timeLeft})
+
     return (
-        <div>
-            <RadialMeter value={pct} size={400}>
-                <h1>{timeLeft}</h1>
+        <div className="flex flex-col items-center">
+            <RadialMeter value={pct} size={350} barColor='#fb923c' trackColor='#f3b98926' >
+                <h1>{formatTime(timeLeft)}</h1>
             </RadialMeter>
-            <div className="controls">
+            {/* <div className="controls">
                 <Button onClick={handleCancel}>Cancel</Button>
                 {!isPaused && <Button onClick={handlePause}>Pause</Button>}
                 {isPaused && <Button onClick={handleResume}>Resume</Button>}
-            </div>
+            </div> */}
         </div>
     );
 }

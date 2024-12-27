@@ -4,6 +4,7 @@ import { dateDiff } from '@appsaurora/utils';
 import AgeDisplay from './AgeDisplay';
 import { usePreferenceStorage } from 'storage/hooks/usePreferenceStorage';
 import Button from 'components/core/button/Button';
+import { Container } from '@/layout';
 
 interface Props {}
 
@@ -40,37 +41,39 @@ const AgeCalculator: React.FC<Props> = (props) => {
     console.log('age => ', age);
 
     return (
-        <Paper className="p-12 mt-6">
-            <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <section className="flex flex-col gap-3">
-                    <h1 className="my-2 text-theme-500 dark:text-slate-300">What's your Date of birth?</h1>
-                    <DateField
-                        value={age}
-                        className=""
-                        onChange={setAge}
-                        onValidityChange={(val) => setDateValidity(val)}
-                        error={isDateValid ? '' : 'Please enter a valid date'}
-                    />
-                    <section className="flex gap-2">
-                        <Button className="my-2" onClick={handleAgeCalculation} disabled={!isDateValid}>
-                            Calculate
-                        </Button>
-                        <Button variant="outlined" className="my-2" onClick={handleClear}>
-                            Clear
-                        </Button>
+        <Container>
+            <Paper className="p-12 mt-6">
+                <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <section className="flex flex-col gap-3">
+                        <h1 className="my-2 text-theme-500 dark:text-slate-300">What's your Date of birth?</h1>
+                        <DateField
+                            value={age}
+                            className=""
+                            onChange={setAge}
+                            onValidityChange={(val) => setDateValidity(val)}
+                            error={isDateValid ? '' : 'Please enter a valid date'}
+                        />
+                        <section className="flex gap-2">
+                            <Button className="my-2" onClick={handleAgeCalculation} disabled={!isDateValid}>
+                                Calculate
+                            </Button>
+                            <Button variant="outlined" className="my-2" onClick={handleClear}>
+                                Clear
+                            </Button>
+                        </section>
+                    </section>
+                    <section>
+                        <AgeDisplay ageCalculated={clickedOnce} ageMonth={ageMonth} ageYear={ageYear} />
                     </section>
                 </section>
-                <section>
-                    <AgeDisplay ageCalculated={clickedOnce} ageMonth={ageMonth} ageYear={ageYear} />
-                </section>
-            </section>
 
-            {/* <h1>History</h1> */}
+                {/* <h1>History</h1> */}
 
-            {/* {ageHistory?.map((history) => (
+                {/* {ageHistory?.map((history) => (
                 <div>{history.toLocaleDateString()}</div>
             ))} */}
-        </Paper>
+            </Paper>
+        </Container>
     );
 };
 

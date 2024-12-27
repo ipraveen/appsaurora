@@ -66,7 +66,7 @@ const Container = styled.div<StyleProps>`
     input:checked + label {
         background-color: #7eab9a;
         color: #fff;
-        box-shadow: 0 0 10px rgba(102, 179, 251, 0.5);
+        box-shadow: 0 0 2px rgba(102, 179, 251, 0.5);
         border-color: #7eab9a;
         z-index: 1;
     }

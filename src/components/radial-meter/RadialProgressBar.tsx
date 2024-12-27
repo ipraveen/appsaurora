@@ -17,8 +17,8 @@ export default function RadialProgressBar({
     children,
     size = 100,
     barSize = 12,
-    trackColor = '#e0e0e0',
-    barColor = '#60e6a8',
+    trackColor = '#efebeb',
+    barColor = '#8e8d8d',
 }: Props) {
     const radius = (size - 2 * barSize) / 2; // Total width = Diameter + BarSize
     const circumference = 2 * Math.PI * radius;

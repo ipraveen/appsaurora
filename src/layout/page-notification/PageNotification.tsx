@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import { Container } from 'components/layout';
+import { Container } from 'layout/index';;
 import clsx from 'clsx';
 
 interface Props {

@@ -38,6 +38,8 @@ export function useTimer() {
                 return;
             }
 
+            console.log()
+
             setTimeLeft(toSeconds(timerDuration - timeElapsedRef.current));
             setTimeElapsed(toSeconds(timeElapsedRef.current));
         }

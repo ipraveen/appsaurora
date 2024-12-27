@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap');
+
+.app-logo svg{
+    fill: red;
+    width: 32px;
+    aspect-ratio: 1/1;
+}
+
+.baloo-2-500 {
+    font-family: 'Baloo 2', serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}

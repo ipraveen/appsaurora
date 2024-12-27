@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "types": ["node","cypress", "@testing-library/cypress"],
+        "types": ["node", "cypress", "@testing-library/cypress"],
         "target": "esnext",
         "lib": ["dom", "esnext"],
         "jsx": "react",
@@ -8,6 +8,8 @@
         "moduleResolution": "node",
         "baseUrl": "src",
         "paths": {
+            "@/*": ["*"],
+            "layout/*": ["layout/*"],
             "apps/*": ["apps/*"],
             "utils/*": ["utils/*"],
             "pages/*": ["pages/*"],
@@ -22,6 +24,6 @@
         "allowJs": false,
         "skipLibCheck": true
     },
-    "include": ["./cypress/**/*", "./src/**/*","./gatsby-node.ts", "./gatsby-config.ts"],
+    "include": ["./cypress/**/*", "./src/**/*", "./gatsby-node.ts", "./gatsby-config.ts"],
     "exclude": ["build", "examples", "public"]
 }

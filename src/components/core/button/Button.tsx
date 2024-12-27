@@ -10,13 +10,12 @@ interface Props {
     color?: 'success' | 'error';
 }
 
-
 const Button: React.FC<Props> = (props) => {
     const { onClick, children, className, disabled } = props;
 
     return (
         <button
-            className={clsx(className, 'bg-sky-600 hover:bg-sky-500 text-white py-2 px-4 rounded', {
+            className={clsx(className, 'bg-sky-600 hover:bg-sky-500 text-white py-2 px-6 rounded-md', {
                 'opacity-50 cursor-not-allowed': disabled,
             })}
             onClick={onClick}

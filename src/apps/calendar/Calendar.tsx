@@ -3,14 +3,15 @@ import React, { MouseEvent, useEffect, useState } from 'react';
 import Year from './Year';
 import { getCurrentYear, compare } from '@appsaurora/utils';
 import { Alert, Button } from 'components/core';
-import { AppProps } from 'components/layout/app-layout/AppLayout';
+import { AppProps } from 'layout/app-layout/AppLayout';
 import CalendarHeader from './CalendarHeader';
 import { usePreferenceStorage } from 'storage/hooks/usePreferenceStorage';
 import useNavigation from 'hooks/useNavigation';
+import { Container } from '@/layout';
 
 interface Props extends AppProps {}
 
-const Calendar = ({ app}: Props) => {
+const Calendar = ({ app }: Props) => {
     const [showNextYear, setShowNextYear] = useState(false);
     const [showPreviousYear, setShowPreviousYear] = useState(false);
     const [showInfo = true, setInfoStorageValue] = usePreferenceStorage<boolean>('CALENDAR_INFO');
@@ -73,46 +74,48 @@ const Calendar = ({ app}: Props) => {
     };
 
     return (
-        <div className="p-1" onClick={onClearClick}>
-            {showInfo && (
-                <Alert
-                    type="info"
-                    title="How to use this app?"
-                    onClose={() => {
-                        setInfoStorageValue(false);
-                    }}
-                >
-                    <p className="text-base">
-                        Click on dates to select a data range. We will calculate the total number of days, weekdays, and
-                        weekends, for you.
-                    </p>
-                </Alert>
-            )}
+        <Container className="p-1">
+            <div onClick={onClearClick}>
+                {showInfo && (
+                    <Alert
+                        type="info"
+                        title="How to use this app?"
+                        onClose={() => {
+                            setInfoStorageValue(false);
+                        }}
+                    >
+                        <p className="text-base">
+                            Click on dates to select a data range. We will calculate the total number of days, weekdays,
+                            and weekends, for you.
+                        </p>
+                    </Alert>
+                )}
 
-            {showPreviousYear && (
-                <Year className="my-6" year={year - 1} onClick={onClick} startDate={startDate} endDate={endDate} />
-            )}
+                {showPreviousYear && (
+                    <Year className="my-6" year={year - 1} onClick={onClick} startDate={startDate} endDate={endDate} />
+                )}
 
-            <CalendarHeader
-                year={year}
-                showNextYear={showNextYear}
-                showPreviousYear={showPreviousYear}
-                setShowNextYear={setShowNextYear}
-                setShowPreviousYear={setShowPreviousYear}
-            />
+                <CalendarHeader
+                    year={year}
+                    showNextYear={showNextYear}
+                    showPreviousYear={showPreviousYear}
+                    setShowNextYear={setShowNextYear}
+                    setShowPreviousYear={setShowPreviousYear}
+                />
 
-            <Year
-                className="my-4"
-                hideLabel={true}
-                year={year}
-                onClick={onClick}
-                startDate={startDate}
-                endDate={endDate}
-            />
-            {showNextYear && (
-                <Year className="my-6" year={year + 1} onClick={onClick} startDate={startDate} endDate={endDate} />
-            )}
-        </div>
+                <Year
+                    className="my-4"
+                    hideLabel={true}
+                    year={year}
+                    onClick={onClick}
+                    startDate={startDate}
+                    endDate={endDate}
+                />
+                {showNextYear && (
+                    <Year className="my-6" year={year + 1} onClick={onClick} startDate={startDate} endDate={endDate} />
+                )}
+            </div>
+        </Container>
     );
 };
 

@@ -1,13 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 
-import { useTimer } from 'apps/timer/hooks/useTimer';
-
-import { RadialMeter } from 'components/radial-meter';
-import { Button } from 'components/core';
+import { Button, Paper } from '@/components/core';
 import './timer.css';
-import { TimeInput, TimeFormat } from 'components/TimeInput';
-import { toSeconds } from 'utils/time';
+import { TimeInput, TimeFormat } from '@/components/TimeInput';
+import { toSeconds } from '@/utils/time';
 import Timer from './Timer';
+import PresetTimers from './PresetTimers';
+import {Container} from '@/layout';
 
 enum TIMER_STATE {
     NOT_STARTED,
@@ -32,20 +31,51 @@ export default function TimerApp() {
         setDuration(0);
         setTimerState(TIMER_STATE.NOT_STARTED);
     };
+
+    const handlePresetClick = (value) => {
+        console.log('value: ', value);
+        const [hrs, min, sec] = value.split(':');
+
+        setDuration(toSeconds(+hrs, +min, +sec));
+        setTimerState(TIMER_STATE.STARTED);
+    };
     console.log({ timerState });
     return (
-        <div className="timer-app">
-            {timerState === TIMER_STATE.NOT_STARTED && (
-                <div className="main timer-not-started">
-                    <TimeInput onChange={handleTimeChange} />
-                    <Button onClick={handleStartTimer}>Start</Button>
+        <Container className="timer-app">
+            <Paper className="content w-full p-10 flex justify-around  gap-10">
+                <div>
+                    <div className="flex flex-col justify-center gap-8">
+                        <TimeInput onChange={handleTimeChange} />
+                        <section className="flex gap-2 justify-center">
+                            <Button onClick={handleStartTimer}>Start</Button>
+                        </section>
+                    </div>
                 </div>
-            )}
-            {timerState === TIMER_STATE.STARTED && (
-                <div className="main timer-started">
+                <div className='flex flex-col justify-end'>
+                    {/* <TabOptions
+                        className="w-60 mx-auto"
+                        name="timerTabs"
+                        onChange={(value) => {}}
+                        value={'preset'}
+                        options={[
+                            {
+                                value: 'preset',
+                                label: 'Presets',
+                            },
+                            {
+                                value: 'custom',
+                                label: 'Custom',
+                            },
+                        ]}
+                    /> */}
                     <Timer duration={duration} resetTimer={handleResetTimer} />
                 </div>
-            )}
-        </div>
+            </Paper>
+
+            <h1 className="font-semibold text-md text-theme-800 dark:text-theme-300 mt-8 mb-0">Presets</h1>
+            <Paper className="content w-full p-2 flex mt-2">
+                <PresetTimers onClick={handlePresetClick} />
+            </Paper>
+        </Container>
     );
 }

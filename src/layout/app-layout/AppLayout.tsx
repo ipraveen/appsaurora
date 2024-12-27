@@ -1,24 +1,15 @@
 import React, { useReducer } from 'react';
-import { Header, Footer, PageNotification } from 'components/layout';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { Header, Footer } from 'layout/index';
 import { getApp } from 'apps/apps-catalog/config';
-import styled from '@emotion/styled';
 
 interface Props {
     children: React.ReactNode;
     appName?: string;
     state?: {
         appId: string;
-        icon: IconDefinition;
         label: string;
     };
 }
-
-const StyledContainer = styled.div`
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    min-height: 100vh;
-`;
 
 export interface AppProps {
     params?: Record<string, string>;
@@ -73,13 +64,12 @@ export default function AppLayout({ children, state, appName = '' }: Props) {
 
     return (
         <>
-            <PageNotification state={notificationState} />
-            <StyledContainer data-testid={appName} className="bg-slate-50 dark:bg-slate-900">
+            {/* <PageNotification state={notificationState} /> */}
+            <div data-testid={appName} >
                 <Header Icon={app?.Icon} label={app?.label} />
-
-                <div className="container mx-auto my-4">{childrenWithProps}</div>
+                {childrenWithProps}
                 <Footer />
-            </StyledContainer>
+            </div>
         </>
     );
 }
