@@ -1,8 +1,8 @@
 import React from 'react';
 import { getApps } from './config';
 import AppsSection from './AppsSection';
-import { Paper } from 'components/core';
-import { Container } from 'layout/index';
+import { Paper } from '@/components/core';
+import { Container } from '@/layout/index';
 
 interface Props {}
 

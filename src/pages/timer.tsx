@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { AppLayout } from 'layout/index';;
-import { Timer } from 'apps/timer';
-import SEO from 'components/seo/SEO';
+import { AppLayout } from '@/layout/index';;
+import { Timer } from '@/apps/timer';
+import SEO from '@/components/seo/SEO';
 import { HeadProps, PageProps } from 'gatsby';
 
 export const Head = (props: HeadProps) => {

@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react';
-import { Header, Footer } from 'layout/index';
-import { getApp } from 'apps/apps-catalog/config';
+import { Header, Footer } from '@/layout';
+import { getApp } from '@/apps/apps-catalog/config';
+import { NotificationContextProvider, PageNotification } from '@/features/notifications';
 
 interface Props {
     children: React.ReactNode;
@@ -64,12 +65,15 @@ export default function AppLayout({ children, state, appName = '' }: Props) {
 
     return (
         <>
-            {/* <PageNotification state={notificationState} /> */}
-            <div data-testid={appName} >
-                <Header Icon={app?.Icon} label={app?.label} />
-                {childrenWithProps}
-                <Footer />
-            </div>
+            <NotificationContextProvider>
+                <PageNotification />
+                <div data-testid={appName}>
+                    <Header Icon={app?.Icon} label={app?.label} />
+                    <div className="content-area"> {childrenWithProps}</div>
+
+                    <Footer />
+                </div>
+            </NotificationContextProvider>
         </>
     );
 }

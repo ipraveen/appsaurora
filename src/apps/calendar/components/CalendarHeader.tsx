@@ -1,4 +1,4 @@
-import { Checkbox } from 'components/core';
+import { Checkbox } from '@/components/core';
 import React from 'react';
 
 export default function CalendarHeader({ year, showNextYear, showPreviousYear, setShowNextYear, setShowPreviousYear }) {

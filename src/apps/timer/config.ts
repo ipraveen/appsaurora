@@ -41,3 +41,10 @@ export const presets = [
         label: '2 Hrs',
     },
 ];
+
+export enum TIMER_STATE {
+    NOT_STARTED,
+    STARTED,
+    PAUSED,
+    FINISHED,
+}

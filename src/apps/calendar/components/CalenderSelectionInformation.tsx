@@ -1,6 +1,6 @@
 import React from 'react';
 import HeaderInfo from './HeaderInfo';
-import { getDateRangeDetails } from './helper';
+import { getDateRangeDetails } from '../helpers/helper';
 
 interface Props {
     year: number;

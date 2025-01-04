@@ -1,6 +1,6 @@
 import React from 'react';
-import Month from 'components/month/Month';
-import { months } from './config';
+import Month from './Month';
+import { months } from '../config';
 
 interface Props {
     year: number;
@@ -15,7 +15,7 @@ const Year = ({ year, onClick, startDate, endDate, className, hideLabel = false 
     return (
         <div className={className}>
             {!hideLabel && <h1 className="text-4xl font-medium my-2 dark:text-slate-400">{year}</h1>}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {months.map(({ value, label }, index) => (
                     <Month
                         label={label}

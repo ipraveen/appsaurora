@@ -1,6 +1,7 @@
 import differenceInMonths from 'date-fns/differenceInMonths';
 import differenceInDays from 'date-fns/differenceInDays';
 import compareAsc from 'date-fns/compareAsc';
+import * as dateFns from 'date-fns';
 
 // Direct Export
 import lastDayOfMonth from 'date-fns/lastDayOfMonth';
@@ -8,12 +9,16 @@ import lastDayOfMonth from 'date-fns/lastDayOfMonth';
 export { lastDayOfMonth };
 
 export const getCurrentYear = () => new Date().getFullYear();
+export const parseISODate = (date: string) => dateFns.parseISO(date);
 
 export const isYearSame = (d1: Date, d2: Date) => d1.getFullYear() === d2.getFullYear();
 export const isMonthSame = (d1: Date, d2: Date) => d1.getMonth() === d2.getMonth();
-export const isDateSame = (d1: Date, d2: Date) => d1.getDate() === d2.getDate();
 
-export const addDays = (date: Date, value: number) => date.setDate(date.getDate() + value);
+export const isSameDay = (d1: Date, d2: Date) => dateFns.isSameDay(d1, d2);
+export const dateCompareAsc = (d1: Date, d2: Date) => dateFns.compareAsc(d1, d2);
+export const isDateInBetween = (base: Date, d1: Date, d2: Date) =>
+    dateFns.compareAsc(d1, base) === -1 && dateFns.compareAsc(base, d2) === -1; // d1 > base > d2
+export const addDays = (date: Date, value: number) => dateFns.addDays(date, value);
 
 export const subtractDays = (date: Date, value: number) => addDays(date, -1 * value);
 

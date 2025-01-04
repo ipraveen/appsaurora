@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import TimeRadialFrame from 'components/TimeRadialFrame';
-import { presets } from 'apps/timer/config';
+import TimeRadialFrame from '@/components/TimeRadialFrame';
+import { presets } from '@/apps/timer/config';
 
 interface Props {
     onClick: (value: string, label: string) => void;

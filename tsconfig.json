@@ -10,10 +10,8 @@
         "paths": {
             "@/*": ["*"],
             "layout/*": ["layout/*"],
-            "apps/*": ["apps/*"],
             "utils/*": ["utils/*"],
             "pages/*": ["pages/*"],
-            "components/*": ["components/*"]
         },
         "noImplicitAny": false,
         "noImplicitThis": true,

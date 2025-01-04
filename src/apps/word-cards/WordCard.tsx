@@ -1,8 +1,8 @@
-import { Button } from 'components/core';
-import FlipCard from 'components/core/flip-card/FlipCard';
+import { Button } from '@/components/core';
+import FlipCard from '@/components/core/flip-card/FlipCard';
 import React, { useState } from 'react';
 import { Word } from './types';
-import { Paper } from 'components/core';
+import { Paper } from '@/components/core';
 
 interface Props {
     word: Word;

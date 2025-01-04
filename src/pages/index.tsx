@@ -1,7 +1,7 @@
 import * as React from 'react';
-import AppsCatalog from 'apps/apps-catalog/AppsCatalog';
-import { AppLayout } from 'layout/index';
-import SEO from 'components/seo/SEO';
+import AppsCatalog from '@/apps/apps-catalog/AppsCatalog';
+import { AppLayout } from '@/layout/index';
+import SEO from '@/components/seo/SEO';
 
 const AgeIndexPagePage = () => {
     return (

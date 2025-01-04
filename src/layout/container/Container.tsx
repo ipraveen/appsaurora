@@ -6,7 +6,8 @@ interface Props {
 }
 
 function Container({ children, className }: Props) {
-    return <div className={`${className} container mx-auto`}>{children}</div>;
+    const cName = ['container mx-auto', className ? className : ''].join(' ');
+    return <div className={cName}>{children}</div>;
 }
 
 export default Container;

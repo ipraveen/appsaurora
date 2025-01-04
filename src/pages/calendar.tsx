@@ -1,7 +1,7 @@
 import * as React from 'react';
-import Calendar from 'apps/calendar/Calendar';
-import { AppLayout } from 'layout/index';;
-import SEO from 'components/seo/SEO';
+import Calendar from '@/apps/calendar/components/CalendarApp';
+import { AppLayout } from '@/layout/index';;
+import SEO from '@/components/seo/SEO';
 import { HeadProps, PageProps } from 'gatsby';
 
 const CalendarPage = (props: PageProps) => {

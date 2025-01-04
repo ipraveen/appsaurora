@@ -1,9 +1,9 @@
-import { DateField, Paper } from 'components/core';
+import { DateField, Label, Paper } from '@/components/core';
 import React, { useState } from 'react';
 import { dateDiff } from '@appsaurora/utils';
 import AgeDisplay from './AgeDisplay';
 import { usePreferenceStorage } from 'storage/hooks/usePreferenceStorage';
-import Button from 'components/core/button/Button';
+import { Button, ButtonIcon } from '@/components/core';
 import { Container } from '@/layout';
 
 interface Props {}
@@ -41,11 +41,11 @@ const AgeCalculator: React.FC<Props> = (props) => {
     console.log('age => ', age);
 
     return (
-        <Container>
+        <Container className="md:max-w-6xl">
             <Paper className="p-12 mt-6">
                 <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <section className="flex flex-col gap-3">
-                        <h1 className="my-2 text-theme-500 dark:text-slate-300">What's your Date of birth?</h1>
+                        <Label>What's your Date of birth? </Label>
                         <DateField
                             value={age}
                             className=""
@@ -53,11 +53,11 @@ const AgeCalculator: React.FC<Props> = (props) => {
                             onValidityChange={(val) => setDateValidity(val)}
                             error={isDateValid ? '' : 'Please enter a valid date'}
                         />
-                        <section className="flex gap-2">
-                            <Button className="my-2" onClick={handleAgeCalculation} disabled={!isDateValid}>
+                        <section className="flex gap-6 my-2">
+                            <ButtonIcon onClick={handleAgeCalculation} disabled={!isDateValid}>
                                 Calculate
-                            </Button>
-                            <Button variant="outlined" className="my-2" onClick={handleClear}>
+                            </ButtonIcon>
+                            <Button variant="outlined" onClick={handleClear}>
                                 Clear
                             </Button>
                         </section>
