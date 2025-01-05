@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { AppLayout } from 'components/layout';
-import AgeCalculator from 'apps/age-calculator/AgeCalculator';
-import SEO from 'components/seo/SEO';
+import { AppLayout } from '@/layout/index';;
+import AgeCalculator from '@/apps/age-calculator/AgeCalculator';
+import SEO from '@/components/seo/SEO';
 import { HeadProps } from 'gatsby';
 
 const AgePage = () => {

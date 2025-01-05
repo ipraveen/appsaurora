@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import NumberInput from '../inputs/NumberInput';
+import { NumberInput } from '@/components/core';
 import getDaysInMonth from 'date-fns/getDaysInMonth';
 import clsx from 'clsx';
 
@@ -12,9 +12,9 @@ interface Props {
 }
 
 const DateField: React.FC<Props> = ({ className, onChange, value, onValidityChange, error }) => {
-    const [year, setYear] = useState<number | null>(null);
-    const [month, setMonth] = useState<number | null>(null);
-    const [date, setDate] = useState<number | null>(null);
+    const [year, setYear] = useState<number>();
+    const [month, setMonth] = useState<number>();
+    const [date, setDate] = useState<number>();
     const [validYear, setValidYear] = useState(true);
     const [validMonth, setValidMonth] = useState(true);
     const [validDate, setValidDate] = useState(true);
@@ -42,9 +42,9 @@ const DateField: React.FC<Props> = ({ className, onChange, value, onValidityChan
 
     useEffect(() => {
         if (value == null) {
-            setYear(null);
-            setMonth(null);
-            setDate(null);
+            setYear(undefined);
+            setMonth(undefined);
+            setDate(undefined);
         }
     }, [value]);
 
@@ -63,8 +63,8 @@ const DateField: React.FC<Props> = ({ className, onChange, value, onValidityChan
                     min={0}
                     max={new Date().getFullYear()}
                     required={true}
-                    valid={validYear}
-                    onValidityChange={(valid) => setValidYear(valid)}
+                    // valid={validYear}
+                    // onValidityChange={(valid) => setValidYear(valid)}
                 />
                 <NumberInput
                     className="w-20"
@@ -74,8 +74,8 @@ const DateField: React.FC<Props> = ({ className, onChange, value, onValidityChan
                     min={1}
                     max={12}
                     required={true}
-                    valid={validMonth}
-                    onValidityChange={(valid) => setValidMonth(valid)}
+                    // valid={validMonth}
+                    // onValidityChange={(valid) => setValidMonth(valid)}
                 />
                 <NumberInput
                     className="w-20"
@@ -85,8 +85,8 @@ const DateField: React.FC<Props> = ({ className, onChange, value, onValidityChan
                     min={0}
                     max={noOfDaysInMonth}
                     required={true}
-                    valid={validDate}
-                    onValidityChange={(valid) => setValidDate(valid)}
+                    // valid={validDate}
+                    // onValidityChange={(valid) => setValidDate(valid)}
                 />
             </div>
 

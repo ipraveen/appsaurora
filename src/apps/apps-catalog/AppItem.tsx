@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import AppLogo from 'components/app-logo/AppLogo';
+import AppLogo from '@/components/app-logo/AppLogo';
 
 interface Props {
     item: {

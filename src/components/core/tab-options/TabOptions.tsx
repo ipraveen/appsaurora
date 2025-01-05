@@ -64,10 +64,9 @@ const Container = styled.div<StyleProps>`
         border-color: #213140;
     }
     input:checked + label {
-        background-color: #7eab9a;
+        background-color: #06b6d4;
         color: #fff;
-        box-shadow: 0 0 10px rgba(102, 179, 251, 0.5);
-        border-color: #7eab9a;
+        border-color: #06b6d4;
         z-index: 1;
     }
 `;

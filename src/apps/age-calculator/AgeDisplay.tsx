@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper } from 'components/core';
+import { Paper } from '@/components/core';
 import { SettingsAccessibility, EmojiPeople } from '@mui/icons-material';
 
 interface Props {

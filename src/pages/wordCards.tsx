@@ -1,7 +1,7 @@
 import * as React from 'react';
-import WordCards from 'apps/word-cards/WordCards';
-import { AppLayout } from 'components/layout';
-import SEO from 'components/seo/SEO';
+import WordCards from '@/apps/word-cards/WordCards';
+import { AppLayout } from '@/layout/index';;
+import SEO from '@/components/seo/SEO';
 import { HeadProps, PageProps } from 'gatsby';
 
 const WordCardsPage = (props: PageProps) => {

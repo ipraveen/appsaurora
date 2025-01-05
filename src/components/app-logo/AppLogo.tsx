@@ -17,8 +17,6 @@ export default function AppLogo({ Icon, label, type, color }: Props) {
                 <div
                     style={{
                         backgroundColor,
-                        outline: `2px solid ${outlineColor}`,
-                        outlineOffset: '2px',
                     }}
                     className="rounded-full w-20 h-20 grid place-content-center "
                 >
@@ -40,9 +38,9 @@ export default function AppLogo({ Icon, label, type, color }: Props) {
     if (type === 'inline-block') {
         return (
             <div className="flex justify-start items-center gap-2">
-                <Icon className="text-slate-700 dark:text-slate-100 " sx={{ fontSize: 36 }} />
-                <h1 className="text-3xl">
-                    <small className="text-slate-700 dark:text-slate-100 tracking-wide font-light lowercase">{label}</small>
+                <Icon className="text-slate-700 dark:text-slate-300 " sx={{ fontSize: 36 }} />
+                <h1 className="text-4xl baloo-2-500 text-slate-700 dark:text-slate-300 text-tracking-wide font-thin lowercase">
+                    {label}
                 </h1>
             </div>
         );
