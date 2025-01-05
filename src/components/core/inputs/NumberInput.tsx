@@ -5,7 +5,7 @@ import BaseInput, { BaseInputProps } from './BaseInput';
 type AuroraUiHTMLInputElementProps = Omit<BaseInputProps, 'onChange' | 'value' | 'type'>;
 
 export interface NumberInputProps extends AuroraUiHTMLInputElementProps {
-    value: number | undefined;
+    value: number | undefined ;
     onChange?: (value: number) => void;
 }
 
@@ -19,5 +19,5 @@ export function NumberInput(props: NumberInputProps) {
         onChange?.(Number(value));
     };
 
-    return <BaseInput type="number" value={value} onChange={handleChange} {...otherProps} />;
+    return <BaseInput type="number" value={value ?? ''} onChange={handleChange} {...otherProps} />;
 }

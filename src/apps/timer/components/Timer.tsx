@@ -1,74 +1,48 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import { useTimer } from '@/apps/timer/hooks/useTimer';
-
 import { RadialMeter } from '@/components/radial-meter';
-import { Button, Label } from '@/components/core';
+import { Label } from '@/components/core';
 import './timer.css';
-import { formatTime } from 'utils/time';
+import { formatTime, toSeconds } from '@/utils/time';
 import { TIMER_STATE } from '@/apps/timer/config';
 import clsx from 'clsx';
+import { TimeFormat } from '@/components/TimeInput';
 
 interface Props {
     className?: string;
     duration: number;
-    resetTimer: () => void;
+    timeLeft: number;
     timerState: TIMER_STATE;
+    timeValue: TimeFormat;
+    size?: number;
 }
 
-export default function Timer({ className, duration, resetTimer, timerState }) {
-    const [isPaused, setPaused] = useState(false);
-    const { start, pause, resume, timeLeft, onEnd, reset } = useTimer();
-
-    useEffect(() => {
-        performance.mark('start');
-        start(duration * 1000);
-    }, []);
-
-    onEnd(() => {
-        performance.mark('end');
-        console.log('This is it! time: ', performance.measure('time', 'start', 'end').duration);
-    });
-
-    const handleResume = () => {
-        setPaused(false);
-        resume();
-    };
-
-    const handlePause = () => {
-        pause();
-        setPaused(true);
-    };
-
-    const handleCancel = () => {
-        reset();
-        resetTimer();
-    };
-
+export default function Timer({ className, duration, timeLeft, timerState, timeValue, size = 450 }) {
+    const { hrs, min, sec } = timeValue;
     const pct = 100 - Math.floor(((duration - timeLeft) / duration) * 100);
-
-    console.log({ timeLeft });
-
     const cName = clsx(className, 'flex flex-col items-center');
 
     return (
         <div className={cName}>
             {timerState === TIMER_STATE.NOT_STARTED && (
-                <RadialMeter value={100} size={350} barColor="#a5f3fc">
+                <RadialMeter value={100} size={size} barColor="#a5f3fc">
+                    <Label type="title">{formatTime(toSeconds(hrs, min, sec))}</Label>
+                </RadialMeter>
+            )}
+
+            {(timerState === TIMER_STATE.STARTED || timerState === TIMER_STATE.PAUSED) && (
+                <RadialMeter value={pct} size={size} barColor="#06b6d4">
                     <Label type="title">{formatTime(timeLeft)}</Label>
                 </RadialMeter>
             )}
 
-            {timerState === TIMER_STATE.STARTED && (
-                <RadialMeter value={pct} size={350} barColor="#06b6d4">
-                    <Label type="title">{formatTime(timeLeft)}</Label>
+            {timerState === TIMER_STATE.FINISHED && (
+                <RadialMeter value={100} size={size} barColor="#06b6d4">
+                    <Label className="animate-timer-end" type="title">
+                        {formatTime(timeLeft)}
+                    </Label>
                 </RadialMeter>
             )}
-            {/* <div className="controls">
-                <Button onClick={handleCancel}>Cancel</Button>
-                {!isPaused && <Button onClick={handlePause}>Pause</Button>}
-                {isPaused && <Button onClick={handleResume}>Resume</Button>}
-            </div> */}
         </div>
     );
 }

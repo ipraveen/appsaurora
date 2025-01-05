@@ -7,3 +7,48 @@
     }
 
 }
+
+
+.animate-timer-start{
+    animation: timer-start-animation 2s infinite;
+   
+}
+
+@keyframes timer-start-animation{
+    0%{
+        transform: scale(1);
+        color: gray;
+    }
+    50%{
+        transform: scale(1.1);
+        color: black;
+
+    }
+    100%{
+        transform: scale(1);
+        color: gray;
+    }
+}
+
+
+
+.animate-timer-end{
+    animation: timer-end-animation 2s infinite;
+   
+}
+
+@keyframes timer-end-animation{
+    0%{
+        transform: scale(1);
+        color: gray;
+    }
+    50%{
+        transform: scale(1.3);
+        color: black;
+
+    }
+    100%{
+        transform: scale(1);
+        color: gray;
+    }
+}

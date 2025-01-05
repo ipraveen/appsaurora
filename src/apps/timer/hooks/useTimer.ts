@@ -1,5 +1,4 @@
-import { duration } from '@mui/material';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 const DURATION_TICK = 500;
 
@@ -17,11 +16,12 @@ export function useTimer() {
     const [timeElapsed, setTimeElapsed] = useState(0);
 
     const timeElapsedRef = useRef(0);
+    const durationRef = useRef(0);
     const pauseRef = useRef(false);
     const endCallbackRef = useRef(() => {});
 
-    const startTimer = async (timerDuration) => {
-        while (timeElapsedRef.current <= timerDuration) {
+    const startTimer = async () => {
+        while (timeElapsedRef.current <= durationRef.current) {
             const loopDuration = await timeDuration();
             if (pauseRef.current === true) {
                 continue;
@@ -29,18 +29,14 @@ export function useTimer() {
 
             timeElapsedRef.current += loopDuration;
 
-            // console.log({ timerDuration, timeElapsed: timeElapsedRef.current, loopDuration });
-
-            if (timeElapsedRef.current >= timerDuration) {
+            if (timeElapsedRef.current >= durationRef.current) {
                 setTimeLeft(0);
-                setTimeElapsed(toSeconds(timerDuration));
+                setTimeElapsed(toSeconds(durationRef.current));
                 endCallbackRef.current();
                 return;
             }
 
-            console.log()
-
-            setTimeLeft(toSeconds(timerDuration - timeElapsedRef.current));
+            setTimeLeft(toSeconds(durationRef.current - timeElapsedRef.current));
             setTimeElapsed(toSeconds(timeElapsedRef.current));
         }
         reset();
@@ -48,13 +44,15 @@ export function useTimer() {
     };
 
     const reset = () => {
+        durationRef.current = 0;
         timeElapsedRef.current = 0;
         pauseRef.current = false;
     };
 
     const start = (duration) => {
         reset();
-        startTimer(duration);
+        durationRef.current = duration;
+        startTimer();
     };
 
     const pause = () => {
