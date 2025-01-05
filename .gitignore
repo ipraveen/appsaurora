@@ -5,3 +5,6 @@ src/gatsby-types.d.ts
 .DS_Store
 
 cypress/videos
+
+# Local Netlify folder
+.netlify
